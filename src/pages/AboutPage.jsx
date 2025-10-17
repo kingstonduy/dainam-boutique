@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function AboutPagePC() {
     return (
         <>
-            <center className="pt-[50px] pb-[35px] px-[16px]">
+            <center className="pt-[50px] pb-[50px] px-[16px]">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full items-center">
                     {/* Left - Image */}
                     <motion.div
