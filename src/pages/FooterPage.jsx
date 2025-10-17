@@ -71,7 +71,7 @@ const Footer = () => {
                 {/* RIGHT SIDE (GOOGLE MAP) */}
                 <div className="w-full md:w-[900px] h-96 rounded-lg overflow-hidden shadow-lg">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6346765869376!2d106.69001931533403!3d10.762622392329773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4b8ea0e8f7%3A0x3ba06ec5e0c12b08!2s79%20Tr%E1%BA%A7n%20H%C6%B0ng%20%C4%90%E1%BA%A1o%2C%20Ph%C6%B0%E1%BB%9Dng%20B%E1%BA%BFn%20Th%C3%A0nh%2C%20Qu%E1%BA%ADn%201%2C%20Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3412.173439279659!2d106.69680726504907!3d10.768521387917772!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3ff397686b%3A0x9778a5477670ba9f!2sDai%20Nam%20Boutique%20Hotel!5e0!3m2!1sen!2sus!4v1760728051439!5m2!1sen!2sus"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -79,7 +79,7 @@ const Footer = () => {
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                         title="Hotel Location Map"
-                    />
+                    ></iframe>
                 </div>
             </div>
 
