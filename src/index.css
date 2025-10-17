@@ -61,3 +61,10 @@
     --tempi-global-color7: #666666;
     --tempi-global-color8: #ffffff;
 }
+
+element.style {
+    font-family: Montserrat;
+    --fontSizeDesktop: 32px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
