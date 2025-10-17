@@ -103,7 +103,7 @@ function AboutPagePC() {
                     initial={{ opacity: 0, y: 80 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, delay: 0.5 }}
-                    className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-16 justify-items-center max-w-5xl"
+                    className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-70 justify-items-center max-w-5xl"
                 >
                     <TiltedCard
                         imageSrc="https://lh3.googleusercontent.com/-SHqjSxOTJN9qDK1zE2nOsFDQEV2n5d0bjmhSBBpJDWI7teBF95r7HyivJzWIAuj32cg_9IwlHIeT_WGoGuW8wIfku6Zga_SgA=rw-w6240"
