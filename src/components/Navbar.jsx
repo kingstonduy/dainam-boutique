@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import logo from "../assets/logo.png";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +27,7 @@ export default function Navbar() {
                     : "bg-white border-b border-gray-200"
             }`}
         >
-            <div className="relative flex justify-center items-center h-20 px-6">
+            <div className="relative flex justify-center items-center h-25 px-6">
                 <Logo />
 
                 {/* Desktop Menu */}
@@ -54,11 +55,12 @@ export default function Navbar() {
 
 function Logo() {
     return (
-        <a href="#">
+        <a href="/" aria-label="Home">
             <img
-                src="https://lh3.googleusercontent.com/sjLc3P5XiMtVnHT7vbI8Hz6RA-QTxhOxQekW2GM-2uvq1Z37PZjit4iEybM09t710LtaXna498UzbyHUoQpUf3nYCghFaCk=w9000"
-                alt="Logo"
-                className="w-[120px] h-[120px] object-contain"
+                src={logo} // ✅ use absolute path if using Vite or CRA public folder
+                alt="Dai Nam Boutique Logo" // ✅ more descriptive alt text
+                className="w-[150px] h-[150px] object-contain"
+                loading="lazy" // ✅ performance optimization
             />
         </a>
     );
