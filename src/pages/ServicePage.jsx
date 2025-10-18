@@ -100,15 +100,16 @@ function AboutPagePhone() {
 /* ------------------------------ PC VERSION ------------------------------ */
 function AboutPagePC() {
     return (
-        <div className="flex flex-col items-center justify-center px-20 py-10">
+        <div className="flex flex-col items-center justify-center px-8 py-20">
             {/* Section Header */}
-            <div className="grid w-full grid-cols-[1fr_2fr] items-center">
+            <div className="grid w-full grid-cols-[1fr_2fr] items-center mb-12 max-w-[1700px]">
                 <div>
                     <div
                         style={{
                             fontFamily: "Josefin Sans",
                             fontSize: "14px",
                             color: "rgb(27, 27, 27)",
+                            letterSpacing: "1px",
                         }}
                     >
                         OUR SERVICES
@@ -118,16 +119,22 @@ function AboutPagePC() {
                 <h4
                     style={{
                         fontFamily: "Cormorant Upright",
-                        fontSize: "48px",
+                        fontSize: "46px",
                         color: "rgb(27, 27, 27)",
                     }}
+                    className="leading-snug"
                 >
                     Hotel Amenities And Services
                 </h4>
             </div>
 
-            {/* Grid Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-8 w-full">
+            {/* ✅ 3×2 Fixed Grid — Scales with width */}
+            <div
+                className="grid gap-8 justify-items-center w-full max-w-[1700px]"
+                style={{
+                    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                }}
+            >
                 {contents.map((item, index) => (
                     <AmenityCardComponentPC
                         key={index}
@@ -144,7 +151,7 @@ function AboutPagePC() {
 /* ------------------------------ CARD COMPONENTS ------------------------------ */
 function AmenityCardComponentPC({ logo, header, content }) {
     return (
-        <div className="flex flex-col items-start p-10 rounded-[20px] shadow-[0_0_20px_rgba(0,0,0,0.25)] bg-white max-w-sm">
+        <div className="flex flex-col items-start p-10 rounded-[20px] shadow-[0_0_20px_rgba(0,0,0,0.25)] bg-white max-w-full">
             <div className="w-12 h-12 mb-3 flex items-center justify-center">
                 <img
                     src={logo}
@@ -157,7 +164,7 @@ function AmenityCardComponentPC({ logo, header, content }) {
             <h4 className="font-[Cormorant_Upright] text-[24px] text-[#1b1b1b] mb-2">
                 {header}
             </h4>
-            <div className="w-12 h-[2px] bg-[#1b1b1b]/60 mb-3"></div>
+            <div className="w-[40%] h-[2px] bg-[#1b1b1b]/60 mb-3"></div>
             <p className="font-[Work_Sans] text-[15px] text-[#1b1b1b]/70 leading-relaxed text-justify">
                 {content}
             </p>
