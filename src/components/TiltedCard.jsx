@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const springValues = {
     damping: 30,
@@ -13,22 +13,29 @@ export default function TiltedCard({
     captionText = "",
     containerHeight = "300px",
     containerWidth = "100%",
-    imageHeight = "300px",
-    imageWidth = "300px",
+    imageHeight = "100%",
+    imageWidth = "100%",
     scaleOnHover = 1.1,
     rotateAmplitude = 14,
-    showMobileWarning = true,
-    showTooltip = true,
+    showMobileWarning = false,
+    showTooltip = false,
     overlayContent = null,
     displayOverlayContent = false,
 }) {
     const ref = useRef(null);
+
+    // ✅ motion values (base)
+    const rotateXVal = useMotionValue(0);
+    const rotateYVal = useMotionValue(0);
+    const scaleVal = useMotionValue(1);
     const x = useMotionValue(0);
     const y = useMotionValue(0);
-    const rotateX = useSpring(useMotionValue(0), springValues);
-    const rotateY = useSpring(useMotionValue(0), springValues);
-    const scale = useSpring(1, springValues);
-    const opacity = useSpring(0);
+
+    // ✅ springs for smooth animation
+    const rotateX = useSpring(rotateXVal, springValues);
+    const rotateY = useSpring(rotateYVal, springValues);
+    const scale = useSpring(scaleVal, springValues);
+    const opacity = useSpring(0, springValues);
     const rotateFigcaption = useSpring(0, {
         stiffness: 350,
         damping: 30,
@@ -39,7 +46,6 @@ export default function TiltedCard({
 
     function handleMouse(e) {
         if (!ref.current) return;
-
         const rect = ref.current.getBoundingClientRect();
         const offsetX = e.clientX - rect.left - rect.width / 2;
         const offsetY = e.clientY - rect.top - rect.height / 2;
@@ -47,8 +53,8 @@ export default function TiltedCard({
         const rotationX = (offsetY / (rect.height / 2)) * -rotateAmplitude;
         const rotationY = (offsetX / (rect.width / 2)) * rotateAmplitude;
 
-        rotateX.set(rotationX);
-        rotateY.set(rotationY);
+        rotateXVal.set(rotationX);
+        rotateYVal.set(rotationY);
 
         x.set(e.clientX - rect.left);
         y.set(e.clientY - rect.top);
@@ -59,66 +65,58 @@ export default function TiltedCard({
     }
 
     function handleMouseEnter() {
-        scale.set(scaleOnHover);
+        scaleVal.set(scaleOnHover);
         opacity.set(1);
     }
 
     function handleMouseLeave() {
         opacity.set(0);
-        scale.set(1);
-        rotateX.set(0);
-        rotateY.set(0);
+        scaleVal.set(1);
+        rotateXVal.set(0);
+        rotateYVal.set(0);
         rotateFigcaption.set(0);
     }
 
     return (
         <figure
             ref={ref}
-            className="relative w-full h-full [perspective:800px] flex flex-col items-center justify-center"
+            className="relative [perspective:800px] flex items-center justify-center w-full h-full"
             style={{
-                height: containerHeight,
                 width: containerWidth,
+                height: containerHeight,
             }}
             onMouseMove={handleMouse}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            {showMobileWarning && (
-                <div className="absolute top-4 text-center text-sm block sm:hidden">
-                    This effect is not optimized for mobile. Check on desktop.
-                </div>
-            )}
-
+            {/* 3D Tilt Wrapper */}
             <motion.div
-                className="relative [transform-style:preserve-3d]"
+                className="relative w-full h-full [transform-style:preserve-3d] overflow-hidden rounded-[15px]"
                 style={{
-                    width: imageWidth,
-                    height: imageHeight,
                     rotateX,
                     rotateY,
                     scale,
                 }}
             >
+                {/* ✅ Image stays visible */}
                 <motion.img
                     src={imageSrc}
                     alt={altText}
-                    className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
-                    style={{
-                        width: imageWidth,
-                        height: imageHeight,
-                    }}
+                    className="absolute inset-0 w-full h-full object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
                 />
 
+                {/* Optional Overlay Content */}
                 {displayOverlayContent && overlayContent && (
-                    <motion.div className="absolute top-0 left-0 z-[2] will-change-transform [transform:translateZ(30px)]">
+                    <motion.div className="absolute inset-0 z-[2] flex items-center justify-center will-change-transform [transform:translateZ(30px)]">
                         {overlayContent}
                     </motion.div>
                 )}
             </motion.div>
 
+            {/* Optional Tooltip */}
             {showTooltip && (
                 <motion.figcaption
-                    className="pointer-events-none absolute left-0 top-0 rounded-[4px] bg-white px-[10px] py-[4px] text-[10px] text-[#2d2d2d] opacity-0 z-[3] hidden sm:block"
+                    className="pointer-events-none absolute left-0 top-0 rounded-[4px] bg-white/90 px-[10px] py-[4px] text-[10px] text-[#2d2d2d] opacity-0 z-[3] hidden sm:block"
                     style={{
                         x,
                         y,
