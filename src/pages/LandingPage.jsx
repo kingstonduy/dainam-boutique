@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 
+const content = {
+    explore: "EXPLORE MORE",
+};
+
 export default function LandingPage() {
     return (
         <div
@@ -19,14 +23,6 @@ export default function LandingPage() {
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="relative text-center space-y-4"
             >
-                {/* <p style="font-family: Montserrat; 
-                --fontSizeDesktop: 32px; color: rgb(255, 255, 255); 
-                text-align: center" class="fs-desktop">WELCOME TO</p>
-                
-                <p style="font-family: Montserrat;
-                 --fontSizeDesktop: 32px; color: rgb(255, 255, 255); 
-                 text-align: center" class="fs-desktop">WELCOME TO</p> */}
-                {/* Subtitle */}
                 <p
                     style={{
                         fontFamily: "Montserrat",
@@ -85,7 +81,7 @@ export default function LandingPage() {
                         e.currentTarget.style.color = "white";
                     }}
                 >
-                    <strong>EXPLORE MORE</strong>
+                    <strong>{content.explore}</strong>
                 </motion.button>
             </motion.div>
         </div>

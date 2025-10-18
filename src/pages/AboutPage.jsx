@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import TiltedCard from "../components/TiltedCard";
+import { useEffect, useState } from "react";
 
-export default function AboutPagePC() {
+const content = {
+    description:
+        "Nestled within the vibrant rhythm of the city, Dai Nam Boutique Hotel is a warm retreat for those in search of peace and comfort. Just steps away from the iconic Ben Thanh Market, the hotel embraces a charming classical style, inspired by timeless values.",
+};
+function AboutPagePC() {
     return (
         <div className="w-full flex flex-col items-center pt-20 pb-20 px-4 md:px-10 lg:px-16">
             {/* ========= Top Section ========= */}
@@ -65,11 +70,7 @@ export default function AboutPagePC() {
                         }}
                         className="text-justify leading-relaxed"
                     >
-                        Nestled within the vibrant rhythm of the city, Dai Nam
-                        Boutique Hotel is a warm retreat for those in search of
-                        peace and comfort. Just steps away from the iconic Ben
-                        Thanh Market, the hotel embraces a charming classical
-                        style, inspired by timeless values.
+                        {content.description}
                     </p>
                 </div>
 
@@ -136,4 +137,88 @@ export default function AboutPagePC() {
             </motion.div>
         </div>
     );
+}
+
+function AboutPagePhone() {
+    return (
+        <div className="pt-[40px] pb-[60px] text-center flex flex-col items-center">
+            {" "}
+            {/* ===== Hotel Text ===== */}{" "}
+            <div className="max-w-[360px] mb-8 px-[20px] ">
+                {" "}
+                <h2
+                    style={{
+                        fontFamily: "Cormorant Upright",
+                        fontSize: "26px",
+                        color: "rgb(27, 27, 27)",
+                    }}
+                >
+                    {" "}
+                    <strong>Dai Nam Boutique Hotel</strong>{" "}
+                </h2>{" "}
+                <p
+                    style={{
+                        fontFamily: "Cormorant Garamond",
+                        fontSize: "18px",
+                        color: "rgb(27, 27, 27)",
+                    }}
+                    className="mt-2 mb-4"
+                >
+                    {" "}
+                    <strong>
+                        {" "}
+                        A touch of elegance in the heart of Saigon{" "}
+                    </strong>{" "}
+                </p>{" "}
+                <p
+                    style={{
+                        fontFamily: "Work Sans",
+                        fontSize: "15px",
+                        color: "rgb(27, 27, 27)",
+                    }}
+                    className="leading-relaxed text-justify"
+                >
+                    {content.description}
+                </p>{" "}
+            </div>{" "}
+            {/* ===== 2×2 Image Grid ===== */}{" "}
+            <div className="grid grid-cols-2 gap-4 w-full max-w-[600px]">
+                {" "}
+                <img
+                    src="https://lh3.googleusercontent.com/mb_YJT5X2NR6XLgJ1XeeOvB_MinJgzIyIQkLegnqnHWaZxYTmsJfgK08V3zE3ThRrQSmevlUlLisrRdnVOu6IUzSdl9Yb08HbQ=rw-w6240"
+                    alt="Lobby view"
+                    className="w-full h-[160px] object-cover rounded-lg shadow-md"
+                />{" "}
+                <img
+                    src="https://lh3.googleusercontent.com/0MT0Cw1cIze2CLv69ao3vwkCw4o2_tYWJNgZLeD8M8IZnoFja5InU7tOciwxSFGV6KSa_KEsDViBY4dtI1g3eDUhfwV9EfU=rw-w6240"
+                    alt="Room interior"
+                    className="w-full h-[160px] object-cover rounded-lg shadow-md"
+                />{" "}
+                <img
+                    src="https://lh3.googleusercontent.com/-SHqjSxOTJN9qDK1zE2nOsFDQEV2n5d0bjmhSBBpJDWI7teBF95r7HyivJzWIAuj32cg_9IwlHIeT_WGoGuW8wIfku6Zga_SgA=rw-w6240"
+                    alt="Elegant interiors"
+                    className="w-full h-[160px] object-cover rounded-lg shadow-md"
+                />{" "}
+                <img
+                    src="https://lh3.googleusercontent.com/JBU2dSqaEMowDy1nhYVyEVgmHwtS9g8-T42K0e58WjDvuUprmLWMiVozoM2Wa1Vf9Ve4QglfO17FwMaHl13qqf4c2NAV2Q4=rw-w5472"
+                    alt="Luxury atmosphere"
+                    className="w-full h-[160px] object-cover rounded-lg shadow-md"
+                />{" "}
+            </div>{" "}
+        </div>
+    );
+}
+
+export default function AboutPage() {
+    const [isPhone, setIsPhone] = useState(false);
+    useEffect(() => {
+        const checkDevice = () => {
+            setIsPhone(window.innerWidth <= 768);
+        };
+        checkDevice();
+        window.addEventListener("resize", checkDevice);
+        return () => window.removeEventListener("resize", checkDevice);
+    }, []);
+
+    return isPhone ? <AboutPagePhone /> : <AboutPagePC />;
 }
