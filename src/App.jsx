@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import DiscoverPage from "./pages/DiscoverPage";
 import Footer from "./pages/FooterPage";
 import LandingPage from "./pages/LandingPage";
@@ -13,6 +14,7 @@ function App() {
             <AboutPage />
             <DiscoverPage />
             <ServicePage />
+            <ContactPage />
             <Footer />
         </>
     );

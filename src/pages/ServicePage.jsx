@@ -6,37 +6,37 @@ const contents = [
         logo: "https://lh3.googleusercontent.com/mJh2RVx6vw63oRaT5vcdCd4D-wpTqLJlINILldhyEW8V14dvTfmE14_WaZuyUYjHPNpIGhaF0J6qg4ak8G2PDzv3O8-QvV0=rw-w57",
         header: "Fibre Internet",
         content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+            "Stay connected anytime with our high-speed internet, available throughout the hotel.",
     },
     {
-        logo: "https://lh3.googleusercontent.com/koAsFJ7K1YJ9g7WNY7L8T9NFP9ZapxmpwWL4tfbiF4AcRqSilmCq3L6kpCe99sbFCzXDPLyyBySlA9rbSYcHA3cR5o33Vlvm=rw-w56",
-        header: "Swimming Pool",
+        logo: "https://lh3.googleusercontent.com/qL58kAyexSmZ6MMmpmZLo2mOLM5GmCDLiBe5ilwoZeSggVtyWHVYNDl5KCwBKBpSEZBftCJBP-bLwGaizqWaWLJNFbX_eqe9=rw-v1-w1920",
+        header: "Breakfast",
         content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+            "Begin your day with a fresh and flavorful breakfast, served with care each morning.",
     },
     {
-        logo: "https://lh3.googleusercontent.com/RGpWPkzM4OPM7v25UQIK2XWKIDZclY5roSiO8-1WPFZZea2EAjXLTsRBoE9dxOrSLGF7a7Phihv7fzlLD2Wc5sC_3WxLDx97=rw-w60",
-        header: "Fitness Center",
+        logo: "https://lh3.googleusercontent.com/IWjoQMRXR72JwokgAnQVBoFDkr4-C_b4Z1acngAJDE5uDA9aaBg0kiytHxCcPzT2ZSxrkiUeUS0CSTmKy8IzH0ZGmdh6ti4=rw-v1-w1920",
+        header: "Parking Space",
         content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+            "Enjoy the comfort of secure on-site parking, ensuring a smooth and worry-free stay.",
     },
     {
-        logo: "https://lh3.googleusercontent.com/AghUFc_kK_2cuqLpWEPlw-5LNZGIKope2R1mnuwSA_NAGm18jR7W-ktkPKXirJ6T8DwYmoVdI_TxGdHMd557ZqjRxWlfBcnd=rw-w618",
-        header: "Room Service",
+        logo: "https://lh3.googleusercontent.com/AghUFc_kK_2cuqLpWEPlw-5LNZGIKope2R1mnuwSA_NAGm18jR7W-ktkPKXirJ6T8DwYmoVdI_TxGdHMd557ZqjRxWlfBcnd=rw-v1-w618",
+        header: "Pick up & drop",
         content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+            "Convenient airport transfer services are available to make your journey seamless from start to finish.",
     },
     {
         logo: "https://lh3.googleusercontent.com/G0Dkc7ywrxJfsYZwTL4-mUVZ9F6tSDbhQJCTrAQwZa4yQRdqBaQx4s2o4D5dG4AFLcR1EvrDXWutjRLS-UBtG-F4C2i9Qj-Q=rw-w627",
-        header: "Parking Space",
+        header: "Laundry service",
         content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+            "Keep your wardrobe fresh with our professional same-day laundry and pressing service.",
     },
     {
         logo: "https://lh3.googleusercontent.com/QZlhgRk73kJR4y-gkaVCX_Z3hIWdD506ttBr59knJfbrJnExDmHi1Bj2IJHlKkCNk0T1npw4X2F9EQJZHvSh1dTOkimQHK8=rw-w117",
-        header: "Conference Room",
+        header: "Wedding banquet service",
         content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+            "Celebrate love in an elegant setting — our team will make your special day beautifully memorable.",
     },
 ];
 
@@ -101,7 +101,7 @@ function ServicePagePhone() {
 /* ------------------------------ PC VERSION ------------------------------ */
 function ServicePagePC() {
     return (
-        <div className="flex flex-col items-center justify-center px-8 py-20">
+        <div className="flex flex-col items-center justify-center px-20 py-20">
             {/* Section Header */}
             <PageHeader
                 section="OUR SERVICES"
@@ -109,20 +109,20 @@ function ServicePagePC() {
             />
 
             {/* ✅ 3×2 Fixed Grid — Scales with width */}
-            <div
-                className="grid gap-8 justify-items-center w-full max-w-[1700px]"
-                style={{
-                    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                }}
-            >
-                {contents.map((item, index) => (
-                    <AmenityCardComponentPC
-                        key={index}
-                        logo={item.logo}
-                        header={item.header}
-                        content={item.content}
-                    />
-                ))}
+            <div className="w-full flex justify-center">
+                <div
+                    className="grid gap-8 justify-items-center w-full max-w-[1200px]"
+                    style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}
+                >
+                    {contents.map((item, index) => (
+                        <AmenityCardComponentPC
+                            key={index}
+                            logo={item.logo}
+                            header={item.header}
+                            content={item.content}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );
@@ -131,8 +131,8 @@ function ServicePagePC() {
 /* ------------------------------ CARD COMPONENTS ------------------------------ */
 function AmenityCardComponentPC({ logo, header, content }) {
     return (
-        <div className="flex flex-col items-start p-10 rounded-[20px] shadow-[0_0_20px_rgba(0,0,0,0.25)] bg-white max-w-full">
-            <div className="w-12 h-12 mb-3 flex items-center justify-center">
+        <div className="flex flex-col items-start p-5 rounded-[20px] shadow-[0_0_20px_rgba(0,0,0,0.25)] bg-white max-w-[400px]">
+            <div className="w-20 h-20 mb-3 flex items-center justify-center">
                 <img
                     src={logo}
                     alt={header}
@@ -145,7 +145,7 @@ function AmenityCardComponentPC({ logo, header, content }) {
                 {header}
             </h4>
             <div className="w-[40%] h-[2px] bg-[#1b1b1b]/60 mb-3"></div>
-            <p className="font-[Work_Sans] text-[15px] text-[#1b1b1b]/70 leading-relaxed text-justify">
+            <p className="font-[Work_Sans] text-[16px] text-[#1b1b1b]/70 leading-relaxed text-justify">
                 {content}
             </p>
         </div>
