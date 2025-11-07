@@ -1,3 +1,4 @@
+import PageHeader from "@/components/PageHeader";
 import React, { useState, useEffect } from "react";
 
 const contents = [
@@ -51,11 +52,11 @@ export default function ServicePage() {
         return () => window.removeEventListener("resize", checkDevice);
     }, []);
 
-    return isPhone ? <AboutPagePhone /> : <AboutPagePC />;
+    return isPhone ? <ServicePagePhone /> : <ServicePagePC />;
 }
 
 /* ------------------------------ PHONE VERSION ------------------------------ */
-function AboutPagePhone() {
+function ServicePagePhone() {
     return (
         <div className="flex flex-col items-center justify-center px-6 py-10">
             {/* Section Header */}
@@ -98,35 +99,14 @@ function AboutPagePhone() {
 }
 
 /* ------------------------------ PC VERSION ------------------------------ */
-function AboutPagePC() {
+function ServicePagePC() {
     return (
         <div className="flex flex-col items-center justify-center px-8 py-20">
             {/* Section Header */}
-            <div className="grid w-full grid-cols-[1fr_2fr] items-center mb-12 max-w-[1700px]">
-                <div>
-                    <div
-                        style={{
-                            fontFamily: "Josefin Sans",
-                            fontSize: "14px",
-                            color: "rgb(27, 27, 27)",
-                            letterSpacing: "1px",
-                        }}
-                    >
-                        OUR SERVICES
-                    </div>
-                    <div className="w-40 h-[1px] bg-gray-400 mt-2"></div>
-                </div>
-                <h4
-                    style={{
-                        fontFamily: "Cormorant Upright",
-                        fontSize: "46px",
-                        color: "rgb(27, 27, 27)",
-                    }}
-                    className="leading-snug"
-                >
-                    Hotel Amenities And Services
-                </h4>
-            </div>
+            <PageHeader
+                section="OUR SERVICES"
+                title="Hotel Amenities & Services"
+            />
 
             {/* ✅ 3×2 Fixed Grid — Scales with width */}
             <div
