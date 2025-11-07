@@ -1,10 +1,10 @@
 import Navbar from "./components/Navbar";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import DiscoverPage from "./pages/DiscoverPage";
-import Footer from "./pages/FooterPage";
-import LandingPage from "./pages/LandingPage";
-import ServicePage from "./pages/ServicePage";
+import AboutPage from "./pages/AboutSection";
+import DiscoverPage from "./pages/DiscoverSection";
+import Footer from "./pages/FooterSection";
+import LandingPage from "./pages/LandingSection";
+import ServicePage from "./pages/ServiceSection";
+import TestimonialsSection from "./pages/TestimonialsSection";
 
 function App() {
     return (
@@ -14,7 +14,7 @@ function App() {
             <AboutPage />
             <DiscoverPage />
             <ServicePage />
-            <ContactPage />
+            <TestimonialsSection />
             <Footer />
         </>
     );
