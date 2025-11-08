@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { LOGOS } from "@/assets";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -14,9 +15,9 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { label: "HOME", href: "#" },
+        { label: "HOME", href: "/home" },
         { label: "ROOM", href: "#" },
-        { label: "CONTACT", href: "#" },
+        { label: "CONTACT", href: "/contact" },
     ];
 
     return (
@@ -46,7 +47,12 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Navigation */}
-            {isMobileMenuOpen && <MobileMenu navLinks={navLinks} />}
+            {isMobileMenuOpen && (
+                <MobileMenu
+                    navLinks={navLinks}
+                    onClose={() => setIsMobileMenuOpen(false)}
+                />
+            )}
         </nav>
     );
 }
@@ -55,19 +61,20 @@ export default function Navbar() {
 
 function Logo() {
     return (
-        <a href="/" aria-label="Home">
+        <Link to="/" aria-label="Home">
             <img
-                src={LOGOS.logo} // ✅ use absolute path if using Vite or CRA public folder
-                alt="Dai Nam Boutique Logo" // ✅ more descriptive alt text
+                src={LOGOS.logo}
+                alt="Dai Nam Boutique Logo"
                 className="w-[150px] h-[150px] object-contain"
-                loading="lazy" // ✅ performance optimization
+                loading="lazy"
             />
-        </a>
+        </Link>
     );
 }
 
 function NavLinks({ navLinks }) {
     const [isRoomOpen, setIsRoomOpen] = useState(false);
+
     return (
         <>
             {navLinks.map((link) =>
@@ -106,36 +113,39 @@ function NavLinks({ navLinks }) {
                         >
                             <ul className="py-3 text-sm text-[var(--tempi-global-color2)] space-y-1">
                                 {[
-                                    { label: "Deluxe Room", id: "deluxe" },
+                                    {
+                                        label: "Deluxe Room",
+                                        to: "/room/deluxe",
+                                    },
                                     {
                                         label: "Executive Room",
-                                        id: "executive",
+                                        to: "/room/executive",
                                     },
                                     {
                                         label: "Signature Room",
-                                        id: "signature",
+                                        to: "/room/signature",
                                     },
                                     {
                                         label: "Dai Nam Suite",
-                                        id: "dainam-suite",
+                                        to: "/room/suite",
                                     },
                                 ].map((room) => (
-                                    <li key={room.id}>
-                                        <a
-                                            href={`#${room.id}`}
+                                    <li key={room.to}>
+                                        <Link
+                                            to={room.to}
                                             className="block px-4 py-2 hover:text-[var(--tempi-global-color3)] transition-colors"
                                         >
                                             {room.label}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     </div>
                 ) : (
-                    <a
+                    <Link
                         key={link.label}
-                        href={link.href}
+                        to={link.href}
                         className={`transition-colors hover:text-[var(--tempi-global-color3)] hover:underline hover:underline-offset-4 ${
                             link.label === "HOME"
                                 ? "text-[var(--tempi-global-color3)]"
@@ -143,7 +153,7 @@ function NavLinks({ navLinks }) {
                         }`}
                     >
                         {link.label}
-                    </a>
+                    </Link>
                 )
             )}
         </>
@@ -212,18 +222,19 @@ function LanguageSelector() {
     );
 }
 
-function MobileMenu({ navLinks }) {
+function MobileMenu({ navLinks, onClose }) {
     return (
         <div className="md:hidden border-t border-gray-200 bg-white animate-in slide-in-from-top-2 duration-200">
             <div className="flex flex-col items-center space-y-4 py-4">
                 {navLinks.map((link) => (
-                    <a
+                    <Link
                         key={link.label}
-                        href={link.href}
+                        to={link.href}
+                        onClick={onClose}
                         className="text-gray-700 hover:text-[var(--tempi-global-color1)] transition-colors"
                     >
                         {link.label}
-                    </a>
+                    </Link>
                 ))}
 
                 <div className="flex items-center space-x-2 border-t pt-4 border-gray-100">

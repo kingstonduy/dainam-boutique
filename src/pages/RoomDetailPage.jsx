@@ -1,12 +1,3 @@
-import { useParams } from "react-router-dom";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import {
     Wifi,
@@ -16,6 +7,10 @@ import {
     Sparkles,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { useEffect, useState } from "react";
+import { IMAGE_LINKS } from "@/assets";
+import { useParams } from "react-router-dom";
+import { H1, Paragraph } from "@/components/Text";
 
 const amenitiesIcons = {
     wifi: <Wifi className="w-4 h-4" />,
@@ -25,100 +20,170 @@ const amenitiesIcons = {
     premium: <Sparkles className="w-4 h-4" />,
 };
 
-const ROOM_DETAILS = {
+const time = {
+    checkIn: "14:00",
+    checkOut: "12:00",
+};
+
+const policies = {
+    noSmoking: "No smoking inside the room",
+    noPets: "Pets are not allowed",
+    idRequired: "ID/Passport required at check-in",
+};
+
+const roomData = {
     deluxe: {
         title: "Deluxe Room",
         description:
-            "A refined retreat ideal for couples or business travelers seeking comfort with a touch of boutique elegance. Designed with warm tones and curated furniture, the Deluxe Room offers a peaceful stay in the heart of Saigon.",
+            "Thoughtfully designed for both leisure and business travelers, the Deluxe Room offers a warm and inviting ambiance with elegant boutique touches. The room features curated furnishings, soothing color palettes, and soft lighting to create an atmosphere of comfort and relaxation. Ideal for couples or solo guests seeking a peaceful retreat in the heart of Saigon, this room strikes the perfect balance between style, convenience, and tranquility.",
         size: "22-24 sqm",
         bed: "Double / Twin Bed",
         occupancy: 2,
         price: "1,300,000 VND / night",
-        checkIn: "14:00",
-        checkOut: "12:00",
-        policies: [
-            "No smoking inside the room",
-            "Pets are not allowed",
-            "ID/Passport required at check-in",
-        ],
+        checkIn: time.checkIn,
+        checkOut: time.checkOut,
+        policies: [policies.noSmoking, policies.noPets, policies.idRequired],
         amenities: ["wifi", "breakfast", "parking", "phone"],
         images: [
-            "https://github.com/kingstonduy/dainam-boutique/blob/master/images/rooms/deluxe/image1.jpg?raw=1",
-            "https://github.com/kingstonduy/dainam-boutique/blob/master/images/rooms/deluxe/image2.jpg?raw=1",
-            "https://github.com/kingstonduy/dainam-boutique/blob/master/images/rooms/deluxe/image3.jpg?raw=1",
-            "https://github.com/kingstonduy/dainam-boutique/blob/master/images/rooms/deluxe/image4.jpg?raw=1",
+            IMAGE_LINKS.rooms.deluxe.thumbnail,
+            ...IMAGE_LINKS.rooms.deluxe.images,
+        ],
+    },
+    executive: {
+        title: "Executive Room",
+        description:
+            "The Executive Room provides an elevated stay experience for guests who value space, comfort, and sophistication. With modern interior décor, a refined work corner, and carefully selected amenities, the room ensures productivity during the day and restful comfort at night. Perfect for business travelers or long-stay guests, it delivers a serene sanctuary away from the city’s energy—without ever being far from it.",
+        size: "26-30 sqm",
+        bed: "Double / Twin Bed",
+        occupancy: 2,
+        price: "1,800,000 VND / night",
+        checkIn: time.checkIn,
+        checkOut: time.checkOut,
+        policies: [policies.noSmoking, policies.noPets, policies.idRequired],
+        amenities: ["wifi", "breakfast", "parking", "phone"],
+        images: [
+            IMAGE_LINKS.rooms.executive.thumbnail,
+            ...IMAGE_LINKS.rooms.executive.images,
+        ],
+    },
+    signature: {
+        title: "Signature Room",
+        description:
+            "Beautifully styled with premium décor and distinctive boutique character, the Signature Room brings an enhanced level of comfort and charm. Each detail—from the luxurious bedding to the curated artwork—has been chosen to elevate the guest experience and evoke a sense of refined living. Ideal for those seeking a more indulgent stay, the Signature Room blends contemporary elegance with a warm, personal touch that leaves a lasting impression.",
+        size: "28-32 sqm",
+        bed: "King Bed",
+        occupancy: 2,
+        price: "2,400,000 VND / night",
+        checkIn: time.checkIn,
+        checkOut: time.checkOut,
+        policies: [policies.noSmoking, policies.noPets, policies.idRequired],
+        amenities: ["wifi", "breakfast", "parking", "phone", "premium"],
+        images: [
+            IMAGE_LINKS.rooms.signature.thumbnail,
+            ...IMAGE_LINKS.rooms.signature.images,
+        ],
+    },
+    suite: {
+        title: "Suite Room",
+        description:
+            "The Suite Room offers the finest expression of luxury at Dai Nam Boutique, combining generous space with tasteful design and upscale amenities. Featuring a stylish lounge area, premium furnishings, and carefully crafted décor, the suite is perfect for special occasions, romantic getaways, or extended stays. With its elevated comfort and refined ambiance, this room provides an intimate and memorable retreat in the heart of Saigon.",
+        size: "35+ sqm",
+        bed: "King Bed",
+        occupancy: 2,
+        price: "3,500,000 VND / night",
+        checkIn: time.checkIn,
+        checkOut: time.checkOut,
+        policies: [policies.noSmoking, policies.noPets, policies.idRequired],
+        amenities: ["wifi", "breakfast", "parking", "phone", "premium"],
+        images: [
+            IMAGE_LINKS.rooms.suite.thumbnail,
+            ...IMAGE_LINKS.rooms.suite.images,
         ],
     },
 };
 
-export default function RoomDetailPage() {
-    const { roomId } = useParams();
-    const room = ROOM_DETAILS[roomId];
+function RoomDetailPC({ room }) {
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
-    if (!room)
-        return <p className="text-center py-20 text-xl">Room not found</p>;
+    if (!room) {
+        return (
+            <div className="text-center py-20 text-xl font-semibold">
+                ❌ Room not found
+            </div>
+        );
+    }
 
     return (
-        <>
-            <Navbar />
+        <section className="bg-white flex flex-col items-center px-6 md:px-12 lg:px-20 py-16 md:py-20">
+            {/* === TOP SECTION: IMAGES + SUMMARY === */}
+            <div className="flex flex-col lg:flex-row gap-10 w-full max-w-6xl">
+                {/* LEFT: IMAGES */}
+                <div className="flex flex-col gap-4 lg:w-2/3">
+                    {/* Big Image */}
+                    <div className="w-full h-[380px]">
+                        <img
+                            src={room.images[selectedIndex]}
+                            alt={room.title}
+                            className="w-full h-full object-cover rounded-xl"
+                        />
+                    </div>
 
-            {/* HERO CAROUSEL */}
-            <section className="relative w-full">
-                <Carousel className="w-full" opts={{ loop: true }}>
-                    <CarouselContent>
-                        {room.images.map((img, i) => (
-                            <CarouselItem key={i}>
+                    {/* Thumbnails */}
+                    <div className="flex gap-3 overflow-x-auto pb-5 pl-3">
+                        {room.images.map((img, i) => {
+                            const isSelected = i === selectedIndex;
+                            return (
                                 <img
+                                    key={i}
                                     src={img}
-                                    alt=""
-                                    className="w-full h-[420px] md:h-[520px] object-cover"
+                                    onClick={() => setSelectedIndex(i)}
+                                    alt={`thumbnail-${i}`}
+                                    className={`w-28 h-20 object-cover mt-3 rounded-lg cursor-pointer transition
+                                        ${
+                                            isSelected
+                                                ? "ring-4 ring-black scale-110"
+                                                : "hover:opacity-80"
+                                        }
+                                    `}
                                 />
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
+                            );
+                        })}
+                    </div>
+                </div>
 
-                    <CarouselPrevious className="left-4" />
-                    <CarouselNext className="right-4" />
-                </Carousel>
-            </section>
+                {/* RIGHT: ROOM DETAILS */}
+                <div className="flex flex-col gap-4 lg:w-1/3">
+                    <H1>{room.title}</H1>
+                    <Paragraph> {room.description} </Paragraph>
 
-            {/* CONTENT SECTION */}
-            <section className="px-6 md:px-20 py-10 bg-[#f4efeeff]">
-                <h1 className="text-4xl font-serif mb-3">{room.title}</h1>
-                <p className="text-gray-700 leading-relaxed max-w-3xl">
-                    {room.description}
-                </p>
-
-                {/* Quick Info */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 text-center">
-                    <InfoCard label="Size" value={room.size} />
-                    <InfoCard
+                    <InfoBox label="Size" value={room.size} />
+                    <InfoBox
                         label="Occupancy"
                         value={`${room.occupancy} Guests`}
                     />
-                    <InfoCard label="Bed" value={room.bed} />
-                    <InfoCard label="Price" value={room.price} />
+                    <InfoBox label="Bed" value={room.bed} />
+                    <InfoBox label="Price" value={room.price} />
                 </div>
+            </div>
 
-                <Separator className="my-10" />
-
-                {/* Amenities */}
+            {/* === AMENITIES === */}
+            <section className="w-full max-w-6xl mt-12">
                 <h2 className="text-2xl font-serif mb-4">Amenities</h2>
                 <div className="flex flex-wrap gap-3">
-                    {room.amenities.map((a, i) => (
+                    {room.amenities.map((key, i) => (
                         <Badge
                             key={i}
                             variant="outline"
                             className="flex items-center gap-2 px-3 py-1 text-sm"
                         >
-                            {amenitiesIcons[a]} {capitalize(a)}
+                            {amenitiesIcons[key]} {capitalize(key)}
                         </Badge>
                     ))}
                 </div>
+            </section>
 
-                <Separator className="my-10" />
-
-                {/* Policies */}
+            {/* === POLICIES === */}
+            <section className="w-full max-w-6xl mt-12">
                 <h2 className="text-2xl font-serif mb-4">Policies</h2>
                 <ul className="list-disc pl-6 space-y-2 text-gray-700">
                     <li>
@@ -132,18 +197,11 @@ export default function RoomDetailPage() {
                     ))}
                 </ul>
             </section>
-
-            {/* Sticky Book Now Button */}
-            <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[300px]">
-                <button className="w-full bg-green-800 hover:bg-green-900 text-white py-3 rounded-full shadow-lg transition">
-                    Book Now
-                </button>
-            </div>
-        </>
+        </section>
     );
 }
 
-function InfoCard({ label, value }) {
+function InfoBox({ label, value }) {
     return (
         <div className="bg-white p-4 rounded-xl shadow">
             <p className="text-sm text-gray-600">{label}</p>
@@ -152,6 +210,30 @@ function InfoCard({ label, value }) {
     );
 }
 
+export default function RoomDetailPage() {
+    const { roomName } = useParams();
+    const [isPhone, setIsPhone] = useState(false);
+    const room = roomData[roomName?.toLowerCase()] || null;
+
+    useEffect(() => {
+        const check = () => setIsPhone(window.innerWidth <= 768);
+        check();
+        window.addEventListener("resize", check);
+        return () => window.removeEventListener("resize", check);
+    }, []);
+
+    return isPhone ? <RoomDetailPhone /> : <RoomDetailPC room={room} />;
+}
+
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function RoomDetailPhone() {
+    return (
+        <div className="text-center py-20 text-xl font-semibold">
+            📱 Mobile view is under construction. Please visit on a desktop
+            device.
+        </div>
+    );
 }

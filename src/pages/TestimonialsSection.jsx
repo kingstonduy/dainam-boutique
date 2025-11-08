@@ -10,6 +10,7 @@ import {
     CarouselDots,
 } from "@/components/ui/carousel";
 import { Star } from "lucide-react";
+import { Paragraph } from "@/components/Text";
 
 function Stars({ rating = 5 }) {
     return (
@@ -53,12 +54,7 @@ function TestimonialCard({ t }) {
                     </div>
                 </div>
 
-                <p
-                    className="text-[18px] md:text-[20px] text-[#1b1b1b] leading-relaxed"
-                    style={{ fontFamily: "Cormorant Garamond" }}
-                >
-                    “{t.quote}”
-                </p>
+                <Paragraph>“{t.quote}” </Paragraph>
             </div>
         </div>
     );

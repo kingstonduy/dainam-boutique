@@ -1,5 +1,6 @@
 import { LOGOS } from "@/assets";
 import PageHeader from "@/components/PageHeader";
+import { Paragraph } from "@/components/Text";
 import React, { useState, useEffect } from "react";
 
 const contents = [
@@ -146,9 +147,7 @@ function AmenityCardComponentPC({ logo, header, content }) {
                 {header}
             </h4>
             <div className="w-[40%] h-[2px] bg-[#1b1b1b]/60 mb-3"></div>
-            <p className="font-[Work_Sans] text-[16px] text-[#1b1b1b]/70 leading-relaxed text-justify">
-                {content}
-            </p>
+            <Paragraph> {content} </Paragraph>
         </div>
     );
 }

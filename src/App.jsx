@@ -1,22 +1,22 @@
 import Navbar from "./components/Navbar";
-import AboutPage from "./pages/AboutSection";
-import DiscoverPage from "./pages/DiscoverSection";
 import Footer from "./pages/FooterSection";
-import LandingPage from "./pages/LandingSection";
-import ServicePage from "./pages/ServiceSection";
-import TestimonialsSection from "./pages/TestimonialsSection";
+import HomePage from "./pages/HomePage";
+import RoomDetailPage from "./pages/RoomDetailPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
+    const BASE_URL = import.meta.env.VITE_BASENAME || "/";
+    console.log("BASE_URL:", BASE_URL);
     return (
-        <>
+        <BrowserRouter basename={BASE_URL}>
             <Navbar />
-            <LandingPage />
-            <AboutPage />
-            <DiscoverPage />
-            <ServicePage />
-            <TestimonialsSection />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/room/:roomName" element={<RoomDetailPage />} />
+            </Routes>
             <Footer />
-        </>
+        </BrowserRouter>
     );
 }
 
