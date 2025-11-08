@@ -1,39 +1,40 @@
+import { LOGOS } from "@/assets";
 import PageHeader from "@/components/PageHeader";
 import React, { useState, useEffect } from "react";
 
 const contents = [
     {
-        logo: "https://lh3.googleusercontent.com/mJh2RVx6vw63oRaT5vcdCd4D-wpTqLJlINILldhyEW8V14dvTfmE14_WaZuyUYjHPNpIGhaF0J6qg4ak8G2PDzv3O8-QvV0=rw-w57",
+        logo: LOGOS.wifi,
         header: "Fibre Internet",
         content:
             "Stay connected anytime with our high-speed internet, available throughout the hotel.",
     },
     {
-        logo: "https://lh3.googleusercontent.com/qL58kAyexSmZ6MMmpmZLo2mOLM5GmCDLiBe5ilwoZeSggVtyWHVYNDl5KCwBKBpSEZBftCJBP-bLwGaizqWaWLJNFbX_eqe9=rw-v1-w1920",
+        logo: LOGOS.breakfast,
         header: "Breakfast",
         content:
             "Begin your day with a fresh and flavorful breakfast, served with care each morning.",
     },
     {
-        logo: "https://lh3.googleusercontent.com/IWjoQMRXR72JwokgAnQVBoFDkr4-C_b4Z1acngAJDE5uDA9aaBg0kiytHxCcPzT2ZSxrkiUeUS0CSTmKy8IzH0ZGmdh6ti4=rw-v1-w1920",
+        logo: LOGOS.parking,
         header: "Parking Space",
         content:
             "Enjoy the comfort of secure on-site parking, ensuring a smooth and worry-free stay.",
     },
     {
-        logo: "https://lh3.googleusercontent.com/AghUFc_kK_2cuqLpWEPlw-5LNZGIKope2R1mnuwSA_NAGm18jR7W-ktkPKXirJ6T8DwYmoVdI_TxGdHMd557ZqjRxWlfBcnd=rw-v1-w618",
+        logo: LOGOS.transport,
         header: "Pick up & drop",
         content:
             "Convenient airport transfer services are available to make your journey seamless from start to finish.",
     },
     {
-        logo: "https://lh3.googleusercontent.com/G0Dkc7ywrxJfsYZwTL4-mUVZ9F6tSDbhQJCTrAQwZa4yQRdqBaQx4s2o4D5dG4AFLcR1EvrDXWutjRLS-UBtG-F4C2i9Qj-Q=rw-w627",
+        logo: LOGOS.laundry,
         header: "Laundry service",
         content:
             "Keep your wardrobe fresh with our professional same-day laundry and pressing service.",
     },
     {
-        logo: "https://lh3.googleusercontent.com/QZlhgRk73kJR4y-gkaVCX_Z3hIWdD506ttBr59knJfbrJnExDmHi1Bj2IJHlKkCNk0T1npw4X2F9EQJZHvSh1dTOkimQHK8=rw-w117",
+        logo: LOGOS.wedding,
         header: "Wedding banquet service",
         content:
             "Celebrate love in an elegant setting — our team will make your special day beautifully memorable.",

@@ -1,3 +1,4 @@
+import { LOGOS } from "@/assets";
 import { Facebook, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
@@ -52,10 +53,11 @@ const Footer = () => {
                                 className="flex items-center gap-2 hover:text-gray-300 transition-colors"
                             >
                                 <img
-                                    src="https://cdn1.iconfinder.com/data/icons/logos-brands-in-colors/2500/zalo-seeklogo.com-512.png"
-                                    alt="Zalo Logo"
-                                    className="h-8 w-8 object-contain bg-white rounded-full"
+                                    src={LOGOS.zalo}
+                                    alt="Zalo"
+                                    className="h-8 w-8"
                                 />
+
                                 <span
                                     style={{
                                         fontFamily: "Work Sans",

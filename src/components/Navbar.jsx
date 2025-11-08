@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import logo from "../assets/logo.png";
+import { LOGOS } from "@/assets";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -57,7 +57,7 @@ function Logo() {
     return (
         <a href="/" aria-label="Home">
             <img
-                src={logo} // ✅ use absolute path if using Vite or CRA public folder
+                src={LOGOS.logo} // ✅ use absolute path if using Vite or CRA public folder
                 alt="Dai Nam Boutique Logo" // ✅ more descriptive alt text
                 className="w-[150px] h-[150px] object-contain"
                 loading="lazy" // ✅ performance optimization

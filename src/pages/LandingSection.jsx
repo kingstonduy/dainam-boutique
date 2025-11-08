@@ -1,3 +1,4 @@
+import { IMAGE_LINKS, LOGOS } from "@/assets";
 import { motion } from "framer-motion";
 
 const content = {
@@ -7,10 +8,9 @@ const content = {
 export default function LandingPage() {
     return (
         <div
-            className="relative min-h-screen bg-cover bg-center flex flex-col items-center justify-center text-white"
+            className="relative  min-h-screen bg-cover bg-center flex flex-col items-center justify-center text-white"
             style={{
-                backgroundImage:
-                    "url('https://lh3.googleusercontent.com/F4iDvxeJWKkgFS9vDOcuz0vVoEDx9mODWkxORV9QzRWEwMX46t1D77bkTm7vE6lQIbFFo2Pu438y8CCnSc21qrZ_j4h9-LZjZA=w0')",
+                backgroundImage: `url(${IMAGE_LINKS.cover})`,
             }}
         >
             {/* Dark overlay */}
@@ -63,7 +63,7 @@ export default function LandingPage() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 1 }}
-                    className="mt-6 px-6 py-3 font-semibold rounded-full shadow-lg transition-colors duration-300"
+                    className="mt-6 px-6 py-3 cursor-pointer font-semibold rounded-full shadow-lg transition-colors duration-300"
                     style={{
                         fontFamily: "Montserrat",
                         fontSize: "11px",
