@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import AreaDetailPage from "./pages/AreaDetailPage";
 import AreasPage from "./pages/AreasPage";
 import Footer from "./pages/FooterSection";
 import HomePage from "./pages/HomePage";
