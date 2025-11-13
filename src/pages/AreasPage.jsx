@@ -31,15 +31,15 @@ const INTRO_TEXT =
 
 const AREA_DESCRIPTIONS = {
     birthday:
-        "A warm and delightful space designed specifically for celebrations and memorable gatherings...",
+        "A warm and delightful space designed specifically for celebrations and memorable gatherings. Soft, ambient lighting complements elegant décor, creating a charming and festive atmosphere suitable for birthdays, anniversaries, and intimate parties. The area features curated decorative accents and a cozy, welcoming layout that invites guests to relax, enjoy, and capture heartfelt moments with loved ones. Whether hosting a small celebration or simply taking beautiful photos, this space offers an inviting environment that blends comfort with a joyful boutique feel.",
     guestLounge:
-        "A peaceful and thoughtfully arranged waiting space where guests can unwind before check-in...",
-    lobby: "The heart of the hotel — open, spacious, and designed with a welcoming sense of elegance...",
-    public: "A thoughtfully crafted communal area dedicated to relaxation, conversation, and enjoying the atmosphere...",
+        "A peaceful and thoughtfully arranged waiting space where guests can unwind before check-in or take a quiet break during their stay. The lounge features comfortable seating, soft lighting, and a refined sense of calm, making it an ideal spot to read, enjoy a drink, or simply relax. Natural light and tasteful interior touches add warmth to the environment, creating a tranquil pause from the bustle of the city. It’s a cozy sanctuary that sets the tone for a comfortable and well-cared-for experience inside the hotel.",
+    lobby: "The heart of the hotel — open, spacious, and designed with a welcoming sense of elegance. This is where the boutique personality of the hotel shines through, with stylish décor, curated artwork, and warm lighting that creates an unforgettable first impression. Guests can meet friends, enjoy a quiet moment, or capture beautiful photos thanks to the thoughtfully composed layout. The lobby blends comfort with character, offering both functionality and charm in equal measure.",
+    public: "A thoughtfully crafted communal area dedicated to relaxation, conversation, and enjoying the atmosphere of the hotel. The space blends subtle design elements with soft tones and open seating arrangements to encourage comfort and social interaction. Whether guests are unwinding after a day of exploration, spending time with family, or simply taking in the hotel’s ambiance, this area provides the perfect backdrop. Designed with harmony and balance in mind, it invites everyone to pause, breathe, and enjoy the simplicity of a warm, welcoming environment.",
     restaurant:
-        "Our signature dining space, created to deliver a memorable and comfortable culinary experience...",
+        "Our signature dining space, created to deliver a memorable and comfortable culinary experience from breakfast through dinner. The restaurant features warm lighting, elegant table arrangements, and a harmonious interior design that enriches every meal. Guests can enjoy a relaxed breakfast, a peaceful afternoon coffee, or a refined evening dinner in an environment that balances charm and sophistication. With its inviting ambiance and attention to detail, the restaurant serves as both a social hub and a serene escape where flavor, comfort, and atmosphere come together beautifully.",
     wedding:
-        "A romantic and gracefully designed venue perfect for engagement shoots, pre-wedding photos...",
+        "A romantic and gracefully designed venue perfect for engagement shoots, pre-wedding photos, and intimate celebration moments. Soft tones, elegant décor, and flattering natural light make this space ideal for capturing precious memories. The atmosphere evokes a sense of warmth, intimacy, and timeless beauty, allowing couples to express their story in an environment tailored for meaningful photography. Whether used for portraits or small romantic events, the area offers a stunning, emotionally resonant setting that highlights love and elegance in every detail.",
 };
 
 /* CREATE STATIC AREA LIST ONLY ONCE */
