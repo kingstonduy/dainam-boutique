@@ -141,3 +141,90 @@ export const IMAGE_LINKS = {
     },
     cover: `https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/cover.png`,
 };
+
+export const TIME = {
+    checkIn: "14:00",
+    checkOut: "12:00",
+};
+
+export const POLICIES = {
+    noSmoking: "No smoking inside the room",
+    noPets: "Pets are not allowed",
+    idRequired: "ID/Passport required at check-in",
+};
+
+export const ROOMS_INFO = {
+    deluxe: {
+        roomType: "DELUXE ROOM",
+        description:
+            "Thoughtfully designed for both leisure and business travelers, the Deluxe Room offers a warm and inviting ambiance with elegant boutique touches. The room features curated furnishings, soothing color palettes, and soft lighting to create an atmosphere of comfort and relaxation. Ideal for couples or solo guests seeking a peaceful retreat in the heart of Saigon, this room strikes the perfect balance between style, convenience, and tranquility.",
+
+        size: "22-24 sqm",
+        bed: "Double / Twin Bed",
+        maxOccupancy: 2,
+        checkIn: TIME.checkIn,
+        checkOut: TIME.checkOut,
+        policies: [POLICIES.noSmoking, POLICIES.noPets, POLICIES.idRequired],
+        amenities: ["wifi", "breakfast", "parking", "phone"],
+        price: 1300000,
+        thumbnail: IMAGE_LINKS.rooms.deluxe.thumbnail,
+        images: [
+            IMAGE_LINKS.rooms.deluxe.thumbnail,
+            ...IMAGE_LINKS.rooms.deluxe.images,
+        ],
+    },
+    executive: {
+        roomType: "EXECUTIVE ROOM",
+        description:
+            "The Executive Room provides an elevated stay experience for guests who value space, comfort, and sophistication. With modern interior décor, a refined work corner, and carefully selected amenities, the room ensures productivity during the day and restful comfort at night. Perfect for business travelers or long-stay guests, it delivers a serene sanctuary away from the city's energy—without ever being far from it.",
+        size: "25-27 sqm",
+        bed: "3 Single Bed",
+        maxOccupancy: 3,
+        checkIn: TIME.checkIn,
+        checkOut: TIME.checkOut,
+        policies: [POLICIES.noSmoking, POLICIES.noPets, POLICIES.idRequired],
+        amenities: ["wifi", "breakfast", "parking", "phone"],
+        price: 1900000,
+        thumbnail: IMAGE_LINKS.rooms.executive.thumbnail,
+        images: [
+            IMAGE_LINKS.rooms.executive.thumbnail,
+            ...IMAGE_LINKS.rooms.executive.images,
+        ],
+    },
+    signature: {
+        roomType: "SIGNATURE ROOM",
+        description:
+            "Beautifully styled with premium décor and distinctive boutique character, the Signature Room brings an enhanced level of comfort and charm. Each detail—from the luxurious bedding to the curated artwork—has been chosen to elevate the guest experience and evoke a sense of refined living. Ideal for those seeking a more indulgent stay, the Signature Room blends contemporary elegance with a warm, personal touch that leaves a lasting impression.",
+        size: "28-32 sqm",
+        bed: "King Bed",
+        occupancy: 2,
+        checkIn: TIME.checkIn,
+        checkOut: TIME.checkOut,
+        policies: [POLICIES.noSmoking, POLICIES.noPets, POLICIES.idRequired],
+        amenities: ["wifi", "breakfast", "parking", "phone"],
+        price: 1900000,
+        thumbnail: IMAGE_LINKS.rooms.executive.thumbnail,
+        images: [
+            IMAGE_LINKS.rooms.signature.thumbnail,
+            ...IMAGE_LINKS.rooms.signature.images,
+        ],
+    },
+    suite: {
+        roomType: "SUITE ROOM",
+        description:
+            "The Suite Room offers the finest expression of luxury at Dai Nam Boutique, combining generous space with tasteful design and upscale amenities. Featuring a stylish lounge area, premium furnishings, and carefully crafted décor, the suite is perfect for special occasions, romantic getaways, or extended stays. With its elevated comfort and refined ambiance, this room provides an intimate and memorable retreat in the heart of Saigon.",
+        size: "35+ sqm",
+        bed: "King Bed",
+        occupancy: 2,
+        checkIn: TIME.checkIn,
+        checkOut: TIME.checkOut,
+        policies: [POLICIES.noSmoking, POLICIES.noPets, POLICIES.idRequired],
+        amenities: ["wifi", "breakfast", "parking", "phone"],
+        price: 1900000,
+        thumbnail: IMAGE_LINKS.rooms.suite.thumbnail,
+        images: [
+            IMAGE_LINKS.rooms.suite.thumbnail,
+            ...IMAGE_LINKS.rooms.suite.images,
+        ],
+    },
+};
