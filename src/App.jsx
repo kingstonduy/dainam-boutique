@@ -1,4 +1,6 @@
 import Navbar from "./components/Navbar";
+import AreaDetailPage from "./pages/AreaDetailPage";
+import AreasPage from "./pages/AreasPage";
 import Footer from "./pages/FooterSection";
 import HomePage from "./pages/HomePage";
 import RoomDetailPage from "./pages/RoomDetailPage";
@@ -14,6 +16,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/room/:roomName" element={<RoomDetailPage />} />
+                <Route path="/services" element={<AreasPage />} />
             </Routes>
             <Footer />
         </BrowserRouter>
