@@ -30,7 +30,7 @@ const AREA_DESCRIPTIONS = {
         "A warm and delightful space designed specifically for celebrations and memorable gatherings. Soft, ambient lighting complements elegant décor, creating a charming and festive atmosphere suitable for birthdays, anniversaries, and intimate parties. The area features curated decorative accents and a cozy, welcoming layout that invites guests to relax, enjoy, and capture heartfelt moments with loved ones. Whether hosting a small celebration or simply taking beautiful photos, this space offers an inviting environment that blends comfort with a joyful boutique feel.",
 
     // Fixed key: was "guestLounge" → now "guest_lounge"
-    guest_lounge:
+    GuestLounge:
         "A peaceful and thoughtfully arranged waiting space where guests can unwind before check-in or take a quiet break during their stay. The lounge features comfortable seating, soft lighting, and a refined sense of calm, making it an ideal spot to read, enjoy a drink, or simply relax. Natural light and tasteful interior touches add warmth to the environment, creating a tranquil pause from the bustle of the city. It’s a cozy sanctuary that sets the tone for a comfortable and well-cared-for experience inside the hotel.",
 
     lobby: "The heart of the hotel — open, spacious, and designed with a welcoming sense of elegance. This is where the boutique personality of the hotel shines through, with stylish décor, curated artwork, and warm lighting that",
