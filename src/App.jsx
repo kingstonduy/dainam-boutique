@@ -4,7 +4,7 @@ import AreasPage from "./pages/Services";
 import Footer from "./pages/FooterSection";
 import HomePage from "./pages/HomePage";
 import RoomDetailPage from "./pages/RoomDetailPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ScrollToTop from "./components/Utils";
 import PolicyPage from "./pages/PolicyPage";
 import TermsPage from "./pages/TermsPage";
@@ -46,7 +46,7 @@ function App() {
     }, []);
 
     return (
-        <BrowserRouter>
+        <>
             <ScrollToTop />
 
             <Navbar language={language} setLanguage={setLanguage} />
@@ -87,7 +87,7 @@ function App() {
             </Routes>
 
             <Footer language={language} />
-        </BrowserRouter>
+        </>
     );
 }
 
