@@ -6,7 +6,7 @@ const content = {
     explore: "EXPLORE MORE",
 };
 
-export default function LandingPage() {
+export default function LandingPage({ onExploreClick }) {
     return (
         <div
             className="relative  min-h-screen bg-cover bg-center flex flex-col items-center justify-center text-white"
@@ -72,6 +72,7 @@ export default function LandingPage() {
                             "rgba(30, 98, 32, 1)";
                         e.currentTarget.style.color = "white";
                     }}
+                    onClick={onExploreClick}
                 >
                     <strong>{content.explore}</strong>
                 </motion.button>
