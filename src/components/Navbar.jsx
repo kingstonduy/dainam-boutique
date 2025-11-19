@@ -207,13 +207,13 @@ function LanguageSelector({ language, setLanguage }) {
             <button className="flex cursor-pointer items-center space-x-2">
                 {language === "en" ? (
                     <img
-                        src="https://flagcdn.com/w20/gb.png"
-                        className="h-4 w-6 rounded-sm"
+                        src={LOGOS.en}
+                        className="h-[20px] w-[32px] rounded-sm"
                     />
                 ) : (
                     <img
-                        src="https://flagcdn.com/w20/vn.png"
-                        className="h-4 w-6 rounded-sm"
+                        src={LOGOS.vi}
+                        className="h-[20px] w-[32px] rounded-sm"
                     />
                 )}
                 <span>{language === "en" ? "EN" : "VI"}</span>
@@ -233,7 +233,7 @@ function LanguageSelector({ language, setLanguage }) {
                 `}
             >
                 <ul className="py-2 text-sm">
-                    <li>
+                    <li className="my-2">
                         <button
                             className="flex items-center justify-start w-full px-2 py-1.5 hover:bg-gray-200 cursor-pointer"
                             onClick={() => {
@@ -242,14 +242,14 @@ function LanguageSelector({ language, setLanguage }) {
                             }}
                         >
                             <img
-                                src="https://flagcdn.com/w20/vn.png"
-                                className="h-4 w-6 mr-2"
+                                src={LOGOS.vi}
+                                className="h-[20px] w-[32px] rounded-sm mr-2"
                             />
                             VI
                         </button>
                     </li>
 
-                    <li>
+                    <li className="my-2">
                         <button
                             className="flex items-center justify-start w-full px-2 py-1.5 hover:bg-gray-200 cursor-pointer"
                             onClick={() => {
@@ -258,8 +258,8 @@ function LanguageSelector({ language, setLanguage }) {
                             }}
                         >
                             <img
-                                src="https://flagcdn.com/w20/gb.png"
-                                className="h-4 w-6 mr-2"
+                                src={LOGOS.en}
+                                className="h-[20px] w-[32px] rounded-sm mr-2"
                             />
                             EN
                         </button>
@@ -291,10 +291,7 @@ function MobileMenu({ navLinks, onClose, setActiveLink }) {
 
                 {/* Flags */}
                 <div className="flex items-center space-x-2 border-t pt-4 border-gray-100">
-                    <img
-                        src="https://flagcdn.com/w20/vn.png"
-                        className="h-4 w-6 rounded-sm"
-                    />
+                    <img src={LOGOS.vi} className="h-18 w-32 rounded-sm" />
                     <span>VI</span>
                 </div>
             </div>

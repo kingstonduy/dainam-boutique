@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-import AreasPage from "./pages/AreasPage";
+import AreasPage from "./pages/Services";
 import Footer from "./pages/FooterSection";
 import HomePage from "./pages/HomePage";
 import RoomDetailPage from "./pages/RoomDetailPage";

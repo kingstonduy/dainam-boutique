@@ -11,7 +11,7 @@ const AreaImage = React.memo(function AreaImage({ img, onClick, className }) {
 
     return (
         <img
-            src={img}
+            srcSet={img}
             alt="preview"
             loading="lazy"
             draggable={false}
