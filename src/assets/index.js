@@ -122,7 +122,7 @@ export const IMAGE_LINKS = {
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/restaurant/image10.jpg&w=1024&h=800&format=webp`,
             ],
         },
-        birthday: {
+        banquet: {
             thumbnail: `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/birthday/thumbnail.jpg&w=1024&h=800&format=webp`,
             images: [
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/birthday/image1.jpg&w=1024&h=800&format=webp`,

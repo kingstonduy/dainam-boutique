@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { LOGOS } from "@/assets";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import ScrollToTop from "./Utils";
 
 export default function Navbar({ language, setLanguage }) {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -86,14 +87,41 @@ export default function Navbar({ language, setLanguage }) {
 
 /* ----------------- Logo ----------------- */
 function Logo() {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleLogoClick = (e) => {
+        e.preventDefault(); // stop default Link behavior
+
+        const currentPath = location.pathname;
+
+        const isHome =
+            currentPath === "/" ||
+            currentPath === "/home" ||
+            currentPath === import.meta.env.VITE_BASENAME ||
+            currentPath === `${import.meta.env.VITE_BASENAME}home`;
+
+        if (!isHome) {
+            // Go to home first, then scroll to top
+            navigate("/");
+            setTimeout(
+                () => window.scrollTo({ top: 0, behavior: "smooth" }),
+                50
+            );
+        } else {
+            // Already at home → just scroll
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
+
     return (
-        <Link to="/" aria-label="Home">
+        <a href="/" aria-label="Home" onClick={handleLogoClick}>
             <img
                 src={LOGOS.logo}
                 alt="Dai Nam Boutique Logo"
                 className="w-[150px] h-[150px] object-contain"
             />
-        </Link>
+        </a>
     );
 }
 

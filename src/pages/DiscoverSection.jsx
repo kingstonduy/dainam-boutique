@@ -57,7 +57,7 @@ function DiscoverPagePC({ rooms, isPhone, language }) {
                 <CarouselContent>
                     {rooms.map((room, index) => (
                         <CarouselItem key={index}>
-                            <RoomCardPC room={room} />
+                            <RoomCardPC room={room} language={language} />
                         </CarouselItem>
                     ))}
                 </CarouselContent>

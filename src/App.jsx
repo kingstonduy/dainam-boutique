@@ -68,9 +68,7 @@ function App() {
                 />
                 <Route
                     path="/services"
-                    element={
-                        <AreasPage isPhone={isPhone} language={language} />
-                    }
+                    element={<AreasPage language={language} />}
                 />
                 <Route
                     path="/terms"

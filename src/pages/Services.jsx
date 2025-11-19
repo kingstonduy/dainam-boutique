@@ -26,36 +26,51 @@ export function cn(...inputs) {
 const formatName = (key) =>
     key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
-const INTRO_TEXT =
-    "At Dai Nam Boutique Hotel, we take pride in offering thoughtfully crafted spaces that elevate every moment of your stay. Each area within our hotel has been designed with a unique purpose in mind—whether you are relaxing before check-in, enjoying a quiet meal, celebrating a special occasion, or simply exploring the charm of our interiors. From inviting lounges and elegantly styled public zones to warm dining spaces and picturesque event corners, every environment reflects our dedication to comfort, aesthetics, and hospitality. These curated areas allow guests to unwind, connect, and create meaningful memories in a setting that blends modern boutique character with timeless elegance. No matter the reason for your visit, our hotel provides a harmonious experience where atmosphere, design, and service come together beautifully.";
+const INTRO_TEXT = {
+    en: "At Dai Nam Boutique Hotel, every space is meticulously designed to elevate your experience. Combining modern amenities with timeless elegance, the hotel offers perfect harmony. Whether relaxing, dining, attending events, or exploring interiors, every detail ensures comfort, luxury, and sophistication.",
+    vi: "Tại Dai Nam Boutique Hotel, mỗi không gian được chăm chút tỉ mỉ để nâng tầm trải nghiệm của bạn. Kết hợp tiện nghi hiện đại và phong cách cổ điển tinh tế, khách sạn mang đến sự hài hòa hoàn hảo. Dù bạn thư giãn, thưởng thức ẩm thực, tham gia sự kiện hay khám phá nội thất, mọi chi tiết đều được thiết kế để bạn cảm thấy thoải mái, sang trọng và đẳng cấp.",
+};
 
 const AREA_DESCRIPTIONS = {
-    lobby: "The heart of the hotel — open, spacious, and designed with a welcoming sense of elegance. This is where the boutique personality of the hotel shines through, with stylish décor, curated artwork, and warm lighting that creates an unforgettable first impression. Guests can meet friends, enjoy a quiet moment, or capture beautiful photos thanks to the thoughtfully composed layout. The lobby blends comfort with character, offering both functionality and charm in equal measure.",
-    public: "A thoughtfully crafted communal area dedicated to relaxation, conversation, and enjoying the atmosphere of the hotel. The space blends subtle design elements with soft tones and open seating arrangements to encourage comfort and social interaction. Whether guests are unwinding after a day of exploration, spending time with family, or simply taking in the hotel’s ambiance, this area provides the perfect backdrop. Designed with harmony and balance in mind, it invites everyone to pause, breathe, and enjoy the simplicity of a warm, welcoming environment.",
-    guestLounge:
-        "A peaceful and thoughtfully arranged waiting space where guests can unwind before check-in or take a quiet break during their stay. The lounge features comfortable seating, soft lighting, and a refined sense of calm, making it an ideal spot to read, enjoy a drink, or simply relax. Natural light and tasteful interior touches add warmth to the environment, creating a tranquil pause from the bustle of the city. It’s a cozy sanctuary that sets the tone for a comfortable and well-cared-for experience inside the hotel.",
-    restaurant:
-        "Our signature dining space, created to deliver a memorable and comfortable culinary experience from breakfast through dinner. The restaurant features warm lighting, elegant table arrangements, and a harmonious interior design that enriches every meal. Guests can enjoy a relaxed breakfast, a peaceful afternoon coffee, or a refined evening dinner in an environment that balances charm and sophistication. With its inviting ambiance and attention to detail, the restaurant serves as both a social hub and a serene escape where flavor, comfort, and atmosphere come together beautifully.",
-    birthday:
-        "A warm and delightful space designed specifically for celebrations and memorable gatherings. Soft, ambient lighting complements elegant décor, creating a charming and festive atmosphere suitable for birthdays, anniversaries, and intimate parties. The area features curated decorative accents and a cozy, welcoming layout that invites guests to relax, enjoy, and capture heartfelt moments with loved ones. Whether hosting a small celebration or simply taking beautiful photos, this space offers an inviting environment that blends comfort with a joyful boutique feel.",
-    wedding:
-        "A romantic and gracefully designed venue perfect for engagement shoots, pre-wedding photos, and intimate celebration moments. Soft tones, elegant décor, and flattering natural light make this space ideal for capturing precious memories. The atmosphere evokes a sense of warmth, intimacy, and timeless beauty, allowing couples to express their story in an environment tailored for meaningful photography. Whether used for portraits or small romantic events, the area offers a stunning, emotionally resonant setting that highlights love and elegance in every detail.",
+    en: {
+        lobby: "The lobby is the heart of Dai Nam Boutique Hotel, welcoming guests with elegance and warmth. Spacious, bright, and thoughtfully designed, it features curated art, cozy seating, and soft lighting. Perfect for first impressions, casual meetings, or capturing memorable photos, the lobby balances comfort and boutique charm.",
+        public: "A modern-classic boutique hotel set amid Saigon’s vibrant core. Just minutes from Ben Thanh Market and Bui Vien Walking Street, the property blends graceful architecture with easy access to the city’s cultural and entertainment hubs.",
+        guestLounge:
+            "A peaceful and thoughtfully arranged waiting space where guests can unwind before check-in or take a quiet break during their stay. The lounge features comfortable seating, soft lighting, and a refined sense of calm, making it an ideal spot to read, enjoy a drink, or simply relax. Natural light and tasteful interior touches add warmth to the environment, creating a tranquil pause from the bustle of the city. It’s a cozy sanctuary that sets the tone for a comfortable and well-cared-for experience inside the hotel.",
+        restaurant:
+            "Our restaurant offers culinary delights in a refined setting. Modern design meets classic elegance, with natural light and comfortable seating enhancing every dining experience. Guests can enjoy breakfast in a space designed for taste, comfort, and social moments.",
+        banquet:
+            "A versatile, elegantly designed venue ideal for birthdays, gatherings, and intimate celebrations. The space features warm lighting, refined décor, and flexible layouts that adapt effortlessly to your event style — from joyful family moments to meaningful milestone parties.",
+        wedding:
+            "Create unforgettable wedding memories at Dai Nam Boutique Hotel. The wedding space combines elegant décor, ambient lighting, and flexible arrangements to suit ceremonies and receptions. Every detail is designed to ensure a romantic, joyful, and seamless celebration.",
+    },
+    vi: {
+        lobby: "Sảnh đón là trái tim của Khách sạn Đại Nam Boutique, chào đón khách với sự thanh lịch và ấm áp. Rộng rãi, sáng sủa và thiết kế tinh tế, nơi đây có nghệ thuật chọn lọc, chỗ ngồi ấm cúng và ánh sáng dịu nhẹ. Lý tưởng để gây ấn tượng đầu tiên, gặp gỡ, hoặc lưu giữ khoảnh khắc đẹp, sảnh kết hợp tiện nghi và phong cách boutique.",
+        public: "Khách sạn boutique mang phong cách hiện đại - cổ điển, toạ lạc ngay trung tâm Sài Gòn. Chỉ cách Chợ Bến Thành và phố Bùi Viện vài phút, khách sạn kết hợp hài hòa giữa nét kiến trúc tinh tế và vị trí thuận tiện gần các điểm văn hoá - giải trí của thành phố.",
+        guestLounge:
+            "Không gian café cổ điển và sang trọng, nổi bật với tông gỗ trầm, ánh sáng ấm và vẻ đẹp đầy quyền lực nhẹ nhàng — lý tưởng cho một ly espresso buổi sáng, một buổi gặp gỡ riêng tư hoặc khoảnh khắc yên bình giữa nhịp sống sôi động của Sài Gòn.",
+        restaurant:
+            "Nhà hàng của khách sạn mang đến ẩm thực tinh tế trong không gian sang trọng. Thiết kế hiện đại kết hợp phong cách cổ điển, ánh sáng tự nhiên và chỗ ngồi thoải mái nâng tầm trải nghiệm ẩm thực. Khách có thể thưởng thức bữa sáng trong không gian đề cao hương vị, sự tiện nghi và khoảnh khắc kết nối.",
+        banquet:
+            "Không gian sự kiện linh hoạt với thiết kế tinh tế, phù hợp cho tiệc sinh nhật, họp mặt và các buổi mừng đặc biệt. Ánh sáng ấm, trang trí sang nhã và bố trí đa dạng giúp sảnh dễ dàng tùy chỉnh theo phong cách sự kiện — từ khoảnh khắc gia đình sum vầy đến những dịp kỷ niệm đáng nhớ.",
+        wedding:
+            "Tạo nên những kỷ niệm cưới khó quên tại Dai Nam Boutique Hotel. Không gian tiệc cưới kết hợp trang trí tinh tế, ánh sáng ấm áp và bố trí linh hoạt để phù hợp với lễ cưới và tiệc tiếp khách. Mỗi chi tiết đều được thiết kế để mang đến một lễ cưới lãng mạn, vui vẻ và trọn vẹn.",
+    },
 };
 
 /* CREATE STATIC AREA LIST ONLY ONCE */
-const useAreas = () =>
-    useMemo(
-        () =>
-            Object.entries(IMAGE_LINKS.areas).map(([key, value]) => ({
-                key,
-                name: formatName(key),
-                description:
-                    AREA_DESCRIPTIONS[key] ||
-                    "A beautifully designed space inside Dai Nam Boutique Hotel.",
-                images: value.images,
-            })),
-        []
-    );
+const useAreas = ({ language }) =>
+    useMemo(() => {
+        return Object.entries(IMAGE_LINKS.areas).map(([key, value]) => ({
+            key,
+            name: formatName(key),
+            description:
+                language === "en"
+                    ? AREA_DESCRIPTIONS.en[key]
+                    : AREA_DESCRIPTIONS.vi[key],
+            images: value.images,
+        }));
+    }, [language]);
 
 /* ---------------------------
    MEMOIZED IMAGE COMPONENT
@@ -97,10 +112,13 @@ const preloadAndDecodeImages = async (urls) => {
    MAIN PAGE
 --------------------------- */
 
-export default function AreasPage({ isPhone }) {
-    const AREAS = useAreas();
+export default function AreasPage({ language }) {
+    const AREAS = useAreas({ language });
     const [selected, setSelected] = useState(AREAS[0]);
-    const [lightbox, setLightbox] = useState({ open: false, img: null });
+
+    useEffect(() => {
+        setSelected(AREAS[0]);
+    }, [language]);
 
     /* ⭐ PRELOAD + PRE-DECODE IMAGES (major performance boost) */
     useEffect(() => {
@@ -111,7 +129,9 @@ export default function AreasPage({ isPhone }) {
         <section className="min-h-screen bg-gradient-to-b from-[#faf6f5] to-[#f4efee] py-16 md:py-24 px-6">
             <div className="max-w-7xl mx-auto">
                 {/* INTRO */}
-                <Paragraph>{INTRO_TEXT}</Paragraph>
+                <Paragraph>
+                    {language === "en" ? INTRO_TEXT.en : INTRO_TEXT.vi}
+                </Paragraph>
 
                 {/* NAV TABS */}
                 <div className="flex flex-wrap justify-center gap-3 mt-4 mb-16">
