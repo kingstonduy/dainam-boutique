@@ -162,7 +162,7 @@ export default function AreasPage({ language }) {
                     </div>
 
                     {/* CAROUSEL */}
-                    <div className="order-1 lg:order-2">
+                    <div className="order-1 lg:order-2 mr-5">
                         <Carousel
                             key={selected.key}
                             className="w-full max-w-6xl"

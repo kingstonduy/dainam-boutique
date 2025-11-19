@@ -6,13 +6,15 @@ import { H3, Paragraph, TEXT_SIZES } from "@/components/Text";
 /* Pop-up image component */
 import PopUpImage from "@/components/PopUpImage";
 
-export default function RoomDetailPage({ isPhone }) {
+export default function RoomDetailPage({ isPhone, language }) {
     const { roomName } = useParams();
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const room = useMemo(() => {
-        return ROOMS_INFO[roomName?.toLowerCase()] || null;
-    }, [roomName]);
+        return language === "en"
+            ? ROOMS_INFO.en[roomName?.toLowerCase()]
+            : ROOMS_INFO.vi[roomName?.toLowerCase()];
+    }, [roomName, language]);
 
     if (!room) return <div>Room not found</div>;
 
@@ -125,57 +127,144 @@ export default function RoomDetailPage({ isPhone }) {
 
                 {/* Damage Policy */}
                 <div>
-                    <H3 size={TEXT_SIZES.XXL}>Damage Policy</H3>
+                    <H3 size={TEXT_SIZES.XXL}>
+                        {language === "en"
+                            ? "Damage Policy"
+                            : "Chính sách đặt cọc thiệt hại"}
+                    </H3>
 
-                    <ul className="space-y-2 text-gray-700 leading-relaxed deco">
+                    <Paragraph className="ml-5">
                         <li>
-                            A damage deposit of 500,000 VND per room per night
-                            is required.
+                            {language === "en"
+                                ? "A damage deposit of 500,000 VND per room per night is required."
+                                : "Tiền đặt cọc: 500.000 VND/phòng/đêm."}
                         </li>
-                        <li>This charge will be collected upon check-in.</li>
-                        <li>The deposit will be returned upon check-out.</li>
-                    </ul>
+                        <li>
+                            {language === "en"
+                                ? "This charge will be collected upon check-in."
+                                : "Khoản phí này sẽ được thu khi nhận phòng."}
+                        </li>
+                        <li>
+                            {language === "en"
+                                ? "The deposit will be returned upon check-out."
+                                : "Khoản phí sẽ được hoàn lại khi trả phòng."}
+                        </li>
+                    </Paragraph>
                 </div>
 
                 {/* Breakfast Policy */}
                 <div>
-                    <H3 size={TEXT_SIZES.XXL}>Breakfast Policy</H3>
+                    <H3 size={TEXT_SIZES.XXL}>
+                        {language === "en"
+                            ? "Breakfast Policy"
+                            : "Chính sách bữa sáng"}
+                    </H3>
 
-                    <ul className="space-y-2 text-gray-700 leading-relaxed deco">
+                    <Paragraph className="ml-5">
                         <li>
-                            For bookings <strong>including breakfast</strong> —
-                            breakfast is served on the 1st floor from{" "}
-                            <strong>6:30 AM to 9:30 AM</strong>.
+                            {language === "en" ? (
+                                <>
+                                    For bookings{" "}
+                                    <strong>including breakfast</strong> —
+                                    breakfast is served on the 1st floor from{" "}
+                                    <strong>6:30 AM to 9:30 AM</strong>.
+                                </>
+                            ) : (
+                                <>
+                                    Đối với các đặt phòng{" "}
+                                    <strong>bao gồm bữa sáng</strong> — bữa sáng
+                                    được phục vụ tại nhà hàng tầng 1 từ{" "}
+                                    <strong>6:30 – 9:30 sáng</strong>.
+                                </>
+                            )}
                         </li>
+
                         <li>
-                            For bookings <strong>without breakfast</strong>,
-                            guests may purchase breakfast at the front desk for{" "}
-                            <strong>200,000 VND per person per day</strong>.
+                            {language === "en" ? (
+                                <>
+                                    For bookings{" "}
+                                    <strong>without breakfast</strong>, guests
+                                    may purchase breakfast at the front desk for{" "}
+                                    <strong>
+                                        200,000 VND per person per day
+                                    </strong>
+                                    .
+                                </>
+                            ) : (
+                                <>
+                                    Đối với các đặt phòng{" "}
+                                    <strong>không bao gồm bữa sáng</strong>— quý
+                                    khách có thể mua bữa sáng tại quầy lễ tân
+                                    với giá{" "}
+                                    <strong>200.000 VND/người/ngày</strong>.
+                                </>
+                            )}
                         </li>
-                    </ul>
+                    </Paragraph>
                 </div>
 
                 {/* Children + Extra Bed */}
                 <div>
-                    <H3 size={TEXT_SIZES.XXL}>Children and Extra Bed Policy</H3>
+                    <H3 size={TEXT_SIZES.XXL}>
+                        {language === "en"
+                            ? "Children and Extra Bed Policy"
+                            : "Chính sách trẻ em và giường phụ"}
+                    </H3>
 
-                    <ul className="space-y-2 text-gray-700 leading-relaxed deco">
+                    <Paragraph className="ml-5">
                         <li>
-                            1 extra guest stays for 600,000 VND per night
-                            (including breakfast).
+                            {language === "en"
+                                ? "Children of all ages are welcome."
+                                : "Trẻ em ở mọi độ tuổi đều được chào đón."}
                         </li>
-                        <li>The maximum number of extra beds per room is 1.</li>
-                        <li>All extra beds are subject to availability.</li>
-                    </ul>
+
+                        <li>
+                            {language === "en" ? (
+                                <>
+                                    1 extra guest (regardless of age) costs{" "}
+                                    <strong>
+                                        600,000 VND per person per night
+                                    </strong>{" "}
+                                    when using an extra bed. (Breakfast included
+                                    for the extra guest.)
+                                </>
+                            ) : (
+                                <>
+                                    1 khách (không phân biệt độ tuổi) sẽ tính
+                                    phí <strong>600.000 VND/đêm</strong> khi sử
+                                    dụng giường phụ. (Giá đã bao gồm bữa sáng
+                                    cho khách thêm.)
+                                </>
+                            )}
+                        </li>
+
+                        <li>
+                            {language === "en"
+                                ? "The maximum number of extra beds per room is 1."
+                                : "Số lượng giường phụ tối đa: 01."}
+                        </li>
+
+                        <li>
+                            {language === "en"
+                                ? "All extra beds are subject to availability."
+                                : "Tất cả giường phụ phụ thuộc vào tình trạng có sẵn."}
+                        </li>
+                    </Paragraph>
                 </div>
 
                 {/* Pets */}
                 <div>
-                    <H3 size={TEXT_SIZES.XXL}>Pets Policy</H3>
+                    <H3 size={TEXT_SIZES.XXL}>
+                        {language === "en" ? "Pets Policy" : "Vật nuôi"}
+                    </H3>
 
-                    <ul className="space-y-2 text-gray-700 leading-relaxed deco">
-                        <li>Pets are not allowed.</li>
-                    </ul>
+                    <Paragraph className="ml-5">
+                        <li>
+                            {language === "en"
+                                ? "Pets are not allowed."
+                                : "Khách sạn không cho phép mang theo vật nuôi."}
+                        </li>
+                    </Paragraph>
                 </div>
             </div>
         </section>

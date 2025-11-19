@@ -1,10 +1,18 @@
 import { LOGOS } from "@/assets";
+import {
+    H1,
+    H2,
+    H3,
+    Paragraph,
+    TEXT_COLORS,
+    TEXT_SIZES,
+} from "@/components/Text";
 import { Facebook, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = ({ language }) => {
     return (
-        <div className="flex flex-col bg-[#014b3fff] text-white items-center justify-center px-8">
+        <div className="flex flex-col bg-[#014b3fff] text-white items-center justify-center px-3">
             {/* HOTEL IMAGE */}
             <img
                 src="https://lh3.googleusercontent.com/f0wZtOV2SufVWCruCeZe2FellQ4xF8lY0TgzGmOpgitjcczcL0qj1OLeAgNKwhKJd9dOZlrdGmrhoidos_1wMkl4GAWhsFqVmw=rw-v1-w9001"
@@ -14,97 +22,69 @@ const Footer = ({ language }) => {
                 decoding="async"
             />
 
-            <div className="container mx-auto flex flex-col md:flex-row items-start justify-around gap-12 px-4">
+            <div className="container mx-auto flex flex-col md:flex-row items-start justify-around gap-15 px-4">
                 {/* LEFT SIDE */}
-                <div className="w-full flex flex-col md:flex-row md:justify-between gap-12">
+                <div className="w-full flex flex-col md:flex-row md:justify-center gap-15">
                     {/* FOLLOW US */}
-                    <div className="md:flex-1">
-                        <h3
-                            style={{
-                                fontFamily: "Cormorant Upright",
-                                fontSize: "46px",
-                                color: "#FFF6EF",
-                            }}
-                            className="leading-snug"
-                        >
+                    <div className="max-w-[150px]">
+                        <H2 color={TEXT_COLORS.WHITE} size={TEXT_SIZES.XXXL}>
                             {language === "en"
                                 ? "Follow Us"
                                 : "Theo Dõi Chúng Tôi"}
-                        </h3>
+                        </H2>
 
-                        <div className="flex flex-col gap-3 mt-2">
+                        <div className="flex flex-col gap-3 mt-3">
                             <a
                                 href="https://www.facebook.com/dainamboutique"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 hover:text-gray-300 transition-colors"
+                                className="flex items-center gap-3 text-white hover:text-gray-300 transition-colors"
                             >
-                                <Facebook className="h-8 w-8" />
-                                <span
-                                    style={{
-                                        fontFamily: "Work Sans",
-                                        fontSize: "20px",
-                                        color: "#FFFFFF",
-                                    }}
-                                >
+                                <img
+                                    src={LOGOS.facebook}
+                                    alt="Facebook"
+                                    className="h-10 w-10"
+                                />
+                                <Paragraph color={TEXT_COLORS.WHITE}>
                                     Facebook
-                                </span>
+                                </Paragraph>
                             </a>
 
                             <a
                                 href="https://zalo.me/0944698974"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 hover:text-gray-300 transition-colors"
+                                className="flex items-center gap-3 text-white hover:text-gray-300 transition-colors"
                             >
                                 <img
                                     src={LOGOS.zalo}
                                     alt="Zalo"
-                                    className="h-8 w-8"
+                                    className="h-10 w-10"
                                 />
-                                <span
-                                    style={{
-                                        fontFamily: "Work Sans",
-                                        fontSize: "20px",
-                                        color: "#FFFFFF",
-                                    }}
-                                >
+                                <Paragraph color={TEXT_COLORS.WHITE}>
                                     Zalo
-                                </span>
+                                </Paragraph>
                             </a>
                         </div>
                     </div>
 
                     {/* GET IN TOUCH */}
                     <div className="md:flex-1">
-                        <h3
-                            style={{
-                                fontFamily: "Cormorant Upright",
-                                fontSize: "46px",
-                                color: "#FFF6EF",
-                            }}
-                            className="leading-snug"
-                        >
+                        <H2 color={TEXT_COLORS.WHITE} size={TEXT_SIZES.XXXL}>
                             {language === "en" ? "Get in Touch" : "Liên Hệ"}
-                        </h3>
+                        </H2>
 
-                        <div className="space-y-3 mt-2">
+                        <div className="space-y-3 mt-3 text-white">
                             <a
                                 href="https://maps.app.goo.gl/pXg7NpY5zs2Pc3uP8"
                                 target="_blank"
-                                className="flex items-start gap-3"
+                                className="flex items-start gap-3 hover:text-gray-300 transition-colors"
                             >
                                 <MapPin className="h-8 w-8 mt-0.5 flex-shrink-0" />
-                                <span
-                                    style={{
-                                        fontFamily: "Work Sans",
-                                        fontSize: "20px",
-                                        color: "#FFFFFF",
-                                    }}
-                                >
+                                <Paragraph color={TEXT_COLORS.WHITE}>
                                     79 Tran Hung Dao, Ben Thanh Ward, Ho Chi
                                     Minh City
-                                </span>
+                                </Paragraph>
                             </a>
 
                             <a
@@ -112,15 +92,9 @@ const Footer = ({ language }) => {
                                 className="flex items-start gap-3 hover:text-gray-300 transition-colors"
                             >
                                 <Phone className="h-8 w-8 mt-0.5 flex-shrink-0" />
-                                <span
-                                    style={{
-                                        fontFamily: "Work Sans",
-                                        fontSize: "20px",
-                                        color: "#FFFFFF",
-                                    }}
-                                >
+                                <Paragraph color={TEXT_COLORS.WHITE}>
                                     (+84) 944 698 974
-                                </span>
+                                </Paragraph>
                             </a>
 
                             <a
@@ -128,65 +102,40 @@ const Footer = ({ language }) => {
                                 className="flex items-start gap-3 hover:text-gray-300 transition-colors"
                             >
                                 <Mail className="h-8 w-8 mt-0.5 flex-shrink-0" />
-                                <span
-                                    style={{
-                                        fontFamily: "Work Sans",
-                                        fontSize: "20px",
-                                        color: "#FFFFFF",
-                                    }}
-                                >
+                                <Paragraph color={TEXT_COLORS.WHITE}>
                                     info@dainamhotels.com.vn
-                                </span>
+                                </Paragraph>
                             </a>
                         </div>
                     </div>
 
                     {/* LINKS */}
                     <div className="md:flex-1">
-                        <h3
-                            style={{
-                                fontFamily: "Cormorant Upright",
-                                fontSize: "46px",
-                                color: "#FFF6EF",
-                            }}
-                            className="leading-snug"
-                        >
+                        <H2 color={TEXT_COLORS.WHITE} size={TEXT_SIZES.XXXL}>
                             {language === "en" ? "Links" : "Liên Kết"}
-                        </h3>
+                        </H2>
 
-                        <div className="flex flex-col gap-3 mt-2">
+                        <div className="flex flex-col gap-3 mt-3 text-white">
                             <Link
                                 to="/terms"
-                                className="hover:text-gray-300 transition-colors"
+                                className="hover:text-gray-300 transition-colors underline"
                             >
-                                <span
-                                    style={{
-                                        fontFamily: "Work Sans",
-                                        fontSize: "20px",
-                                        color: "#FFFFFF",
-                                    }}
-                                >
+                                <Paragraph color={TEXT_COLORS.WHITE}>
                                     {language === "en"
                                         ? "TERMS OF SERVICE"
-                                        : "ĐIỀU KHOẢN DỊCH VỤ"}
-                                </span>
+                                        : "ĐIỀU KHOẢN DỊCH VỤ"}{" "}
+                                </Paragraph>
                             </Link>
 
                             <Link
                                 to="/policies"
-                                className="hover:text-gray-300 transition-colors"
+                                className="hover:text-gray-300 transition-colors underline"
                             >
-                                <span
-                                    style={{
-                                        fontFamily: "Work Sans",
-                                        fontSize: "20px",
-                                        color: "#FFFFFF",
-                                    }}
-                                >
+                                <Paragraph color={TEXT_COLORS.WHITE}>
                                     {language === "en"
                                         ? "POLICIES"
-                                        : "CHÍNH SÁCH"}
-                                </span>
+                                        : "CHÍNH SÁCH"}{" "}
+                                </Paragraph>
                             </Link>
                         </div>
                     </div>

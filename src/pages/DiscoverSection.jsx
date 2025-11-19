@@ -13,16 +13,24 @@ import {
 import { useEffect, useMemo, useState } from "react";
 
 // Memoize the rooms list (avoid recreating array on every render)
-const useRooms = () =>
-    useMemo(
-        () => [
-            ROOMS_INFO.deluxe,
-            ROOMS_INFO.executive,
-            ROOMS_INFO.signature,
-            ROOMS_INFO.suite,
-        ],
-        []
-    );
+const useRooms = (language) =>
+    useMemo(() => {
+        return language === "en"
+            ? [
+                  ROOMS_INFO.en.deluxe,
+                  ROOMS_INFO.en.deluxeTriple,
+                  ROOMS_INFO.en.executive,
+                  ROOMS_INFO.en.signature,
+                  ROOMS_INFO.en.suite,
+              ]
+            : [
+                  ROOMS_INFO.vi.deluxe,
+                  ROOMS_INFO.vi.deluxeTriple,
+                  ROOMS_INFO.vi.executive,
+                  ROOMS_INFO.vi.signature,
+                  ROOMS_INFO.vi.suite,
+              ];
+    }, [language]);
 
 export default function DiscoverPage({ isPhone, language }) {
     const rooms = useRooms();
