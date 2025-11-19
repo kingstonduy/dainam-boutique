@@ -39,7 +39,7 @@ jobs:
 
             # 4️⃣ Build in dev mode (uses .env.dev)
             - name: Build (dev mode)
-              run: npm run build
+              run: npm run build:github
 
             # 5️⃣ Setup GitHub Pages
             - name: Setup Pages
