@@ -10,9 +10,6 @@ import PolicyPage from "./pages/PolicyPage";
 import TermsPage from "./pages/TermsPage";
 
 function App() {
-    const BASE_URL = import.meta.env.VITE_BASENAME || "/";
-    console.log("BASE_URL:", BASE_URL);
-
     const [isPhone, setIsPhone] = useState(() => window.innerWidth <= 768);
 
     // Detect screen size
@@ -49,7 +46,7 @@ function App() {
     }, []);
 
     return (
-        <BrowserRouter basename={BASE_URL}>
+        <BrowserRouter>
             <ScrollToTop />
 
             <Navbar language={language} setLanguage={setLanguage} />
