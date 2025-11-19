@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { LOGOS } from "@/assets";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import ScrollToTop from "./Utils";
 
 export default function Navbar({ language, setLanguage }) {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -172,6 +171,10 @@ function NavLinks({ navLinks, activeLink, setActiveLink }) {
                                     {
                                         label: "Deluxe Room",
                                         to: "/room/deluxe",
+                                    },
+                                    {
+                                        label: "Deluxe Triple Room",
+                                        to: "/room/deluxeTriple",
                                     },
                                     {
                                         label: "Executive Room",

@@ -9,8 +9,11 @@ import PopUpImage from "@/components/PopUpImage";
 export default function RoomDetailPage({ isPhone, language }) {
     const { roomName } = useParams();
     const [selectedIndex, setSelectedIndex] = useState(0);
+    console.log("roomName:", roomName);
 
     const room = useMemo(() => {
+        console.log("roomName:", ROOMS_INFO.vi["deluxeTriple"]);
+
         return language === "en"
             ? ROOMS_INFO.en[roomName?.toLowerCase()]
             : ROOMS_INFO.vi[roomName?.toLowerCase()];

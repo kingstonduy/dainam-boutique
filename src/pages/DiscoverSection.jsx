@@ -1,7 +1,7 @@
 import { ROOMS_INFO } from "@/assets";
 import SectionHeader from "@/components/PageHeader";
 import PopUpImage from "@/components/PopUpImage";
-import { H2, H3, Paragraph } from "@/components/Text";
+import { H2, Paragraph } from "@/components/Text";
 import {
     Carousel,
     CarouselContent,
@@ -18,14 +18,14 @@ const useRooms = (language) =>
         return language === "en"
             ? [
                   ROOMS_INFO.en.deluxe,
-                  ROOMS_INFO.en.deluxeTriple,
+                  ROOMS_INFO.en.deluxetriple,
                   ROOMS_INFO.en.executive,
                   ROOMS_INFO.en.signature,
                   ROOMS_INFO.en.suite,
               ]
             : [
                   ROOMS_INFO.vi.deluxe,
-                  ROOMS_INFO.vi.deluxeTriple,
+                  ROOMS_INFO.vi.deluxetriple,
                   ROOMS_INFO.vi.executive,
                   ROOMS_INFO.vi.signature,
                   ROOMS_INFO.vi.suite,

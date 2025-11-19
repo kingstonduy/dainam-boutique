@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { IMAGE_LINKS } from "@/assets";
-import { X } from "lucide-react";
 
 import {
     Carousel,

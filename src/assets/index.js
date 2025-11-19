@@ -42,7 +42,7 @@ export const IMAGE_LINKS = {
             ],
         },
         deluxeTriple: {
-            thumbnail: `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/rooms/deluxeTriple/thumbnail.jpg&w=1024&h=800&format=webp`,
+            thumbnail: `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/rooms/deluxeTriple/thumbnail.jpg&w=1024&h=800`,
             images: [
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/rooms/deluxeTriple/image1.jpg&w=1024&h=800&format=webp`,
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/rooms/deluxeTriple/image2.jpg&w=1024&h=800&format=webp`,
@@ -191,7 +191,7 @@ export const ROOMS_INFO = {
                 ...IMAGE_LINKS.rooms.deluxe.images,
             ],
         },
-        deluxeTriple: {
+        deluxetriple: {
             roomType: "DELUXE TRIPLE ROOM",
             description:
                 "Where comfort meets practicality for small groups and families. The Deluxe Triple Room offers a spacious layout with tasteful décor, thoughtful details, and a warm ambiance. Designed to accommodate up to three guests, this room provides the perfect balance of convenience and relaxation — ideal for friends or families exploring the vibrant energy of ",
@@ -305,7 +305,7 @@ export const ROOMS_INFO = {
                 ...IMAGE_LINKS.rooms.deluxe.images,
             ],
         },
-        deluxeTriple: {
+        deluxetriple: {
             roomType: "DELUXE TRIPLE ROOM",
             description:
                 "Nơi sự thoải mái gặp gỡ tính thực tiễn cho các nhóm nhỏ và gia đình. Phòng Deluxe Triple cung cấp một bố cục rộng rãi với trang trí trang nhã, những chi tiết tinh tế và bầu không khí ấm áp. Được thiết kế để chứa tối đa ba khách, phòng này mang lại sự cân bằng hoàn hảo giữa sự tiện lợi và thư giãn — lý tưởng cho bạn bè hoặc gia đình khám phá năng lượng sôi động của ",
