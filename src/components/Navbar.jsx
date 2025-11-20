@@ -4,9 +4,8 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { LOGOS } from "@/assets";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-export default function Navbar({ language, setLanguage }) {
+function NavbarPC({ language, setLanguage }) {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeLink, setActiveLink] = useState("HOME");
 
     const location = useLocation();
@@ -62,14 +61,89 @@ export default function Navbar({ language, setLanguage }) {
                         setLanguage={setLanguage}
                     />
                 </div>
+            </div>
+        </nav>
+    );
+}
 
-                {/* Mobile button */}
-                <button
-                    className="absolute right-6 md:hidden p-2 text-gray-700"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+export default function Navbar({ isPhone, language, setLanguage }) {
+    return isPhone ? (
+        <NavbarPhone language={language} setLanguage={setLanguage} />
+    ) : (
+        <NavbarPC language={language} setLanguage={setLanguage} />
+    );
+}
+
+function NavbarPhone({ language, setLanguage }) {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeLink, setActiveLink] = useState("HOME");
+    const [isFlagOpen, setIsFlagOpen] = useState(false);
+
+    const location = useLocation();
+
+    // Highlight based on page
+    useEffect(() => {
+        const path = location.pathname;
+        if (path.startsWith("/room")) setActiveLink("ROOMS");
+        else if (path.startsWith("/services")) setActiveLink("SERVICES");
+        else setActiveLink("HOME");
+    }, [location]);
+
+    // Navbar shadow on scroll
+    useEffect(() => {
+        const handleScroll = () => setIsScrolled(window.scrollY > 10);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const navLinks = {
+        en: [
+            { label: "HOME", href: "/home" },
+            { label: "ROOMS", href: "#" },
+            { label: "SERVICES", href: "/services" },
+        ],
+        vi: [
+            { label: "TRANG CHỦ", href: "/home" },
+            { label: "PHÒNG", href: "#" },
+            { label: "DỊCH VỤ", href: "/services" },
+        ],
+    };
+
+    return (
+        <nav
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                isScrolled
+                    ? "bg-white/95 backdrop-blur-md shadow-sm"
+                    : "bg-white border-b border-gray-200"
+            }`}
+        >
+            <div className="relative flex items-center justify-center h-25 px-6">
+                {/* LOGO CENTERED */}
+                <div className="absolute left-1/2 -translate-x-1/2">
+                    <Logo />
+                </div>
+
+                {/* RIGHT SIDE ICONS */}
+                <div className="flex items-center gap-4 ml-auto">
+                    <LanguageSelectorPhone
+                        language={language}
+                        setLanguage={setLanguage}
+                        isFlagOpen={isFlagOpen}
+                        setIsFlagOpen={setIsFlagOpen}
+                    />
+
+                    <button
+                        className="p-2 text-gray-700 md:hidden"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? (
+                            <X size={24} />
+                        ) : (
+                            <Menu size={24} />
+                        )}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile menu */}
@@ -301,29 +375,156 @@ function LanguageSelector({ language, setLanguage }) {
     );
 }
 
+/* ----------------- Language Selector ----------------- */
+function LanguageSelectorPhone({
+    language,
+    setLanguage,
+    isFlagOpen,
+    setIsFlagOpen,
+}) {
+    return (
+        <div className="relative">
+            {/* show current language */}
+            <button
+                className="flex cursor-pointer items-center space-x-2"
+                onClick={() => setIsFlagOpen(!isFlagOpen)}
+            >
+                {language === "en" ? (
+                    <img
+                        src={LOGOS.en}
+                        className="h-[20px] w-[32px] rounded-sm"
+                    />
+                ) : (
+                    <img
+                        src={LOGOS.vi}
+                        className="h-[20px] w-[32px] rounded-sm"
+                    />
+                )}
+                <span>{language === "en" ? "EN" : "VI"}</span>
+                <ChevronDown
+                    size={16}
+                    className={`${isFlagOpen ? "rotate-180" : "rotate-0"}`}
+                />
+            </button>
+
+            {/* choose desire language */}
+
+            <div
+                className={`absolute right-0 top-full mt-2 w-30 bg-white rounded-lg shadow-lg transition-all z-50
+                    ${
+                        isFlagOpen
+                            ? "opacity-100 visible"
+                            : "opacity-0 invisible -translate-y-2"
+                    }
+                `}
+            >
+                <ul className="py-2 text-sm">
+                    <li className="my-2">
+                        <button
+                            className="flex items-center justify-start w-full px-2 py-1.5 hover:bg-gray-200 cursor-pointer"
+                            onClick={() => {
+                                setIsFlagOpen(false);
+                                setLanguage("vi");
+                            }}
+                        >
+                            <img
+                                src={LOGOS.vi}
+                                className="h-[20px] w-[32px] rounded-sm mr-2"
+                            />
+                            VI
+                        </button>
+                    </li>
+
+                    <li className="my-2">
+                        <button
+                            className="flex items-center justify-start w-full px-2 py-1.5 hover:bg-gray-200 cursor-pointer"
+                            onClick={() => {
+                                setIsFlagOpen(false);
+                                setLanguage("en");
+                            }}
+                        >
+                            <img
+                                src={LOGOS.en}
+                                className="h-[20px] w-[32px] rounded-sm mr-2"
+                            />
+                            EN
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    );
+}
+
 /* ----------------- Mobile Menu ----------------- */
 function MobileMenu({ navLinks, onClose, setActiveLink }) {
-    return (
-        <div className="md:hidden border-t border-gray-200 bg-white">
-            <div className="flex flex-col items-center space-y-4 py-4">
-                {navLinks.map((link) => (
-                    <Link
-                        key={link.label}
-                        to={link.href}
-                        onClick={() => {
-                            setActiveLink(link.label);
-                            onClose();
-                        }}
-                        className="text-gray-700 hover:text-[var(--tempi-global-color1)]"
-                    >
-                        {link.label}
-                    </Link>
-                ))}
+    const [activePanel, setActivePanel] = useState(null); // "rooms" | null
 
-                {/* Flags */}
-                <div className="flex items-center space-x-2 border-t pt-4 border-gray-100">
-                    <img src={LOGOS.vi} className="h-18 w-32 rounded-sm" />
-                    <span>VI</span>
+    const rooms = [
+        { label: "Deluxe Room", to: "/room/deluxe" },
+        { label: "Deluxe Triple Room", to: "/room/deluxeTriple" },
+        { label: "Executive Room", to: "/room/executive" },
+        { label: "Signature Room", to: "/room/signature" },
+        { label: "Dai Nam Suite", to: "/room/suite" },
+    ];
+
+    return (
+        <div className="md:hidden border-t border-gray-200 bg-white relative">
+            {/* ---------------- LEFT SIDE MAIN MENU ---------------- */}
+            <div className="flex flex-col h-[250px] items-start space-y-4 py-4 px-6">
+                {navLinks.map((link) => (
+                    <div key={link.label} className="w-full">
+                        {/* ----- ROOMS BUTTON ----- */}
+                        {link.label === "ROOMS" || link.label === "PHÒNG" ? (
+                            <button
+                                className="text-gray-700 text-lg text-left w-full"
+                                onClick={() => setActivePanel("rooms")}
+                            >
+                                {link.label}
+                            </button>
+                        ) : (
+                            // ----- NORMAL LINKS -----
+                            <Link
+                                to={link.href}
+                                className="text-gray-700 text-lg"
+                                onClick={() => {
+                                    setActiveLink(link.label);
+                                    setActivePanel(null);
+                                    onClose();
+                                }}
+                            >
+                                {link.label}
+                            </Link>
+                        )}
+                    </div>
+                ))}
+            </div>
+
+            {/* ---------------- RIGHT PANEL ---------------- */}
+            <div
+                className={`
+                    absolute top-0 right-0 h-full w-1/2 bg-white border-l border-gray-200
+                    transform transition-all duration-300 ease-out
+                    ${activePanel ? "translate-x-0" : "translate-x-full"}
+                `}
+            >
+                <div className="flex flex-col py-6 px-4 space-y-3">
+                    {/* ---------- ROOMS PANEL ---------- */}
+                    {activePanel === "rooms" &&
+                        rooms.map((room) => (
+                            <Link
+                                key={room.to}
+                                to={room.to}
+                                className="text-gray-700 text-base hover:text-[var(--tempi-global-color3)]"
+                                onClick={() => {
+                                    setActiveLink("ROOMS");
+                                    setActivePanel(null);
+                                    onClose();
+                                }}
+                            >
+                                {room.label}
+                            </Link>
+                        ))}
                 </div>
             </div>
         </div>

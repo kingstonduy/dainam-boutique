@@ -49,7 +49,11 @@ function App() {
         <>
             <ScrollToTop />
 
-            <Navbar language={language} setLanguage={setLanguage} />
+            <Navbar
+                isPhone={isPhone}
+                language={language}
+                setLanguage={setLanguage}
+            />
 
             <Routes>
                 <Route
