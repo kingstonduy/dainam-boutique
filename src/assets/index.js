@@ -98,11 +98,11 @@ export const IMAGE_LINKS = {
         public: {
             thumbnail: `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/thumbnail.png&w=1024&h=800&format=webp&v=2`,
             images: [
-                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image1.png&w=1024&h=800&format=webp&v=2`,
-                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image2.png&w=1024&h=800&format=webp&v=2`,
-                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image3.png&w=1024&h=800&format=webp&v=2`,
-                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image4.png&w=1024&h=800&format=webp&v=2`,
-                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image5.png&w=1024&h=800&format=webp&v=2`,
+                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image1.jpg&w=1024&h=800&format=webp&v=2`,
+                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image2.jpg&w=1024&h=800&format=webp&v=2`,
+                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image3.jpg&w=1024&h=800&format=webp&v=2`,
+                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image4.jpg&w=1024&h=800&format=webp&v=2`,
+                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image5.jpg&w=1024&h=800&format=webp&v=2`,
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image6.png&w=1024&h=800&format=webp&v=2`,
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image7.jpg&w=1024&h=800&format=webp&v=2`,
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image8.jpg&w=1024&h=800&format=webp&v=2`,
