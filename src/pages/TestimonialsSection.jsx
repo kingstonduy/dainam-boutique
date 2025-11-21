@@ -139,7 +139,7 @@ export default function TestimonialsSection({ isPhone, language }) {
                 title={
                     language === "en"
                         ? "Our Guests Say It Best"
-                        : "Để khác hàng nói lên tất cả"
+                        : "Để khách hàng nói lên tất cả"
                 }
                 isPhone={isPhone}
             />
