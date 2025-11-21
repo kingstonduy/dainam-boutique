@@ -10,7 +10,7 @@ import {
     CarouselPrevious,
     CarouselDots,
 } from "@/components/ui/carousel";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 // Memoize the rooms list (avoid recreating array on every render)
 const useRooms = (language) =>
