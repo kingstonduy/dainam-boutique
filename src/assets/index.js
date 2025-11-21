@@ -100,7 +100,7 @@ export const IMAGE_LINKS = {
             images: [
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image1.jpg&w=1024&h=800&format=webp&v=2`,
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image2.jpg&w=1024&h=800&format=webp&v=2`,
-                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image3.jpg&w=1024&h=800&format=webp&v=2`,
+                `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image3.png&w=1024&h=800&format=webp&v=2`,
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image4.jpg&w=1024&h=800&format=webp&v=2`,
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image5.jpg&w=1024&h=800&format=webp&v=2`,
                 `https://wsrv.nl/?url=https://raw.githubusercontent.com/kingstonduy/dainam-boutique/master/images/areas/public/image6.png&w=1024&h=800&format=webp&v=2`,
