@@ -166,6 +166,14 @@ export const POLICIES = {
     idRequired: "ID/Passport required at check-in",
 };
 
+const ROOM_PRICES = {
+    deluxe: 1900000,
+    deluxetriple: 2900000,
+    executive: 2100000,
+    signature: 2300000,
+    suite: 2500000,
+};
+
 export const ROOMS_INFO = {
     en: {
         deluxe: {
@@ -184,7 +192,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1300000,
+            price: ROOM_PRICES.deluxe,
             thumbnail: IMAGE_LINKS.rooms.deluxe.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.deluxe.thumbnail,
@@ -207,7 +215,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1900000,
+            price: ROOM_PRICES.deluxetriple,
             thumbnail: IMAGE_LINKS.rooms.deluxeTriple.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.deluxeTriple.thumbnail,
@@ -229,7 +237,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1500000,
+            price: ROOM_PRICES.executive,
             thumbnail: IMAGE_LINKS.rooms.executive.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.executive.thumbnail,
@@ -251,7 +259,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1700000,
+            price: ROOM_PRICES.signature,
             thumbnail: IMAGE_LINKS.rooms.executive.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.signature.thumbnail,
@@ -273,7 +281,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1900000,
+            price: ROOM_PRICES.suite,
             thumbnail: IMAGE_LINKS.rooms.suite.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.suite.thumbnail,
@@ -298,7 +306,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1300000,
+            price: ROOM_PRICES.deluxe,
             thumbnail: IMAGE_LINKS.rooms.deluxe.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.deluxe.thumbnail,
@@ -321,7 +329,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1900000,
+            price: ROOM_PRICES.deluxetriple,
             thumbnail: IMAGE_LINKS.rooms.deluxeTriple.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.deluxeTriple.thumbnail,
@@ -343,7 +351,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1500000,
+            price: ROOM_PRICES.executive,
             thumbnail: IMAGE_LINKS.rooms.executive.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.executive.thumbnail,
@@ -365,7 +373,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1700000,
+            price: ROOM_PRICES.signature,
             thumbnail: IMAGE_LINKS.rooms.executive.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.signature.thumbnail,
@@ -387,7 +395,7 @@ export const ROOMS_INFO = {
                 { name: "parking", logo: LOGOS.parking },
                 { name: "landline phone", logo: LOGOS.phone },
             ],
-            price: 1900000,
+            price: ROOM_PRICES.suite,
             thumbnail: IMAGE_LINKS.rooms.suite.thumbnail,
             images: [
                 IMAGE_LINKS.rooms.suite.thumbnail,
