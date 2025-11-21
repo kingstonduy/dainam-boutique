@@ -93,7 +93,7 @@ const Footer = ({ language }) => {
                             >
                                 <Phone className="h-8 w-8 mt-0.5 flex-shrink-0" />
                                 <Paragraph color={TEXT_COLORS.WHITE}>
-                                    (+84) 944 698 974
+                                    (+84) 812 398 974
                                 </Paragraph>
                             </a>
 
