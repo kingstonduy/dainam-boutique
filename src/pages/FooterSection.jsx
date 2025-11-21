@@ -88,12 +88,12 @@ const Footer = ({ language }) => {
                             </a>
 
                             <a
-                                href="tel:+84944698974"
+                                href="tel:+84812398974"
                                 className="flex items-start gap-3 hover:text-gray-300 transition-colors"
                             >
                                 <Phone className="h-8 w-8 mt-0.5 flex-shrink-0" />
                                 <Paragraph color={TEXT_COLORS.WHITE}>
-                                    (+84) 944 698 974
+                                    (+84) 812 398 974
                                 </Paragraph>
                             </a>
 
